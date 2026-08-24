@@ -1,15 +1,70 @@
 "use client";
 
-import { Suspense, useMemo, useRef, useState } from "react";
-import { Canvas, useFrame, type ThreeEvent } from "@react-three/fiber";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
 import { Instances, Instance, OrbitControls, Sparkles, Line, Html } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { QuadraticBezierCurve3, Vector3, IcosahedronGeometry, CanvasTexture } from "three";
-import type { Object3D } from "three";
+import type { Object3D, PerspectiveCamera } from "three";
 import { COLOR_BITCOIN, COLOR_TOR, COLOR_LINK } from "./colors";
 import type { NetworkData, NetworkNode, Connection, NetworkStats, Side } from "./networkData";
 
 const GROUND_Y = -2.9;
+
+/** True for small screens or touch-primary devices — drives quality and interaction defaults. */
+function useIsMobile(): boolean {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => {
+      setIsMobile(window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches);
+    };
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return isMobile;
+}
+
+/**
+ * Keeps both clusters in frame as the viewport's aspect ratio changes.
+ * A PerspectiveCamera's fov is vertical, so on a narrow/portrait phone
+ * screen the effective horizontal field of view shrinks even though the
+ * two clusters' horizontal separation (CLUSTER_OFFSET) doesn't — without
+ * this, portrait viewports would crop one or both clusters out of frame.
+ * Mutates the active camera imperatively so it doesn't touch the Canvas's
+ * own `camera` prop (see the stable-Canvas-props note near Scene below).
+ */
+// Half-width (world units) of the content that must stay in frame — both
+// cluster centers plus their radius, with a little breathing room.
+const FRAME_HALF_WIDTH = 4.2 + 3.0 + 0.6; // CLUSTER_OFFSET + BASE_RADIUS + margin
+// Constant camera tilt below horizontal, independent of aspect ratio, so
+// portrait and landscape frame the scene from the same angle — only the
+// distance and fov change to fit the width.
+const CAMERA_PITCH_DEG = 21;
+
+function ResponsiveCamera() {
+  const { camera, size } = useThree();
+
+  useEffect(() => {
+    const persp = camera as PerspectiveCamera;
+    const aspect = size.width / size.height;
+    const fov = aspect < 0.9 ? 62 : 48;
+
+    const vFovRad = (fov * Math.PI) / 180;
+    const hFovRad = 2 * Math.atan(Math.tan(vFovRad / 2) * aspect);
+    const distance = (FRAME_HALF_WIDTH / Math.tan(hFovRad / 2)) * 1.06;
+
+    const pitchRad = (CAMERA_PITCH_DEG * Math.PI) / 180;
+    const elevation = distance * Math.sin(pitchRad);
+    const horizontal = distance * Math.cos(pitchRad);
+
+    persp.fov = fov;
+    persp.position.set(0, elevation, horizontal);
+    persp.updateProjectionMatrix();
+  }, [camera, size.width, size.height]);
+
+  return null;
+}
 
 interface SelectedNode {
   asn: string;
@@ -404,10 +459,12 @@ function GroundPlane() {
 function SceneContents({
   data,
   highQuality,
+  isMobile,
   onSelect,
 }: {
   data: NetworkData;
   highQuality: boolean;
+  isMobile: boolean;
   onSelect: SelectHandler;
 }) {
   const radii = useMemo<ClusterRadii>(
@@ -454,7 +511,15 @@ function SceneContents({
 
   return (
     <>
-      <Sparkles count={180} scale={[17, 6, 11]} size={3} speed={0.3} color="#8fefe0" opacity={0.7} />
+      <ResponsiveCamera />
+      <Sparkles
+        count={isMobile ? 80 : 180}
+        scale={[17, 6, 11]}
+        size={3}
+        speed={0.3}
+        color="#8fefe0"
+        opacity={0.7}
+      />
       <GroundPlane />
       <NodeCloud entries={entries} onSelect={onSelect} />
       <CrossLayerLinks nodes={data.nodes} connections={data.connections} radii={radii} />
@@ -463,12 +528,13 @@ function SceneContents({
       <OrbitControls
         enablePan={false}
         enableZoom={false}
+        enableRotate={!isMobile}
         autoRotate
         autoRotateSpeed={0.2}
         enableDamping
         dampingFactor={0.05}
         minDistance={6}
-        maxDistance={22}
+        maxDistance={32}
         minPolarAngle={Math.PI * 0.32}
         maxPolarAngle={Math.PI * 0.58}
       />
@@ -484,10 +550,12 @@ function SceneContents({
 function DetailPanel({
   node,
   totals,
+  isMobile,
   onClose,
 }: {
   node: SelectedNode;
   totals: { bitcoin: number; tor: number };
+  isMobile: boolean;
   onClose: () => void;
 }) {
   const color = node.side === "bitcoin" ? COLOR_BITCOIN : COLOR_TOR;
@@ -500,9 +568,12 @@ function DetailPanel({
     <div
       style={{
         position: "absolute",
-        top: "1rem",
-        right: "1rem",
-        width: "17rem",
+        // On mobile the title sits top-center and the Effects toggle moves
+        // to top-right, so a floating top-right card would collide with
+        // both — instead it becomes a full-width bar below the title.
+        ...(isMobile
+          ? { top: "6.5rem", left: "1rem", right: "1rem", width: "auto" }
+          : { top: "1rem", right: "1rem", width: "min(17rem, calc(100vw - 2rem))" }),
         background: "rgba(20,18,32,0.85)",
         border: `1px solid ${color}66`,
         borderRadius: "0.5rem",
@@ -565,8 +636,19 @@ const DPR_HIGH: [number, number] = [1, 2];
 const DPR_LOW = 1;
 
 export default function Scene({ data }: { data: NetworkData | null }) {
+  const isMobile = useIsMobile();
   const [highQuality, setHighQuality] = useState(true);
   const [selected, setSelected] = useState<SelectedNode | null>(null);
+  const autoQualitySet = useRef(false);
+
+  // Default effects off on phones/small screens (once), without fighting a
+  // manual toggle afterward.
+  useEffect(() => {
+    if (isMobile && !autoQualitySet.current) {
+      autoQualitySet.current = true;
+      setHighQuality(false);
+    }
+  }, [isMobile]);
 
   return (
     <div style={{ position: "relative", width: "100%", height: "100%" }}>
@@ -578,7 +660,14 @@ export default function Scene({ data }: { data: NetworkData | null }) {
       >
         <color attach="background" args={["#040805"]} />
         <Suspense fallback={null}>
-          {data && <SceneContents data={data} highQuality={highQuality} onSelect={setSelected} />}
+          {data && (
+            <SceneContents
+              data={data}
+              highQuality={highQuality}
+              isMobile={isMobile}
+              onSelect={setSelected}
+            />
+          )}
         </Suspense>
       </Canvas>
 
@@ -586,7 +675,7 @@ export default function Scene({ data }: { data: NetworkData | null }) {
         onClick={() => setHighQuality((q) => !q)}
         style={{
           position: "absolute",
-          bottom: "1rem",
+          ...(isMobile ? { top: "1rem" } : { bottom: "1rem" }),
           right: "1rem",
           background: "rgba(20,18,32,0.7)",
           color: "#c9c4dc",
@@ -604,6 +693,7 @@ export default function Scene({ data }: { data: NetworkData | null }) {
         <DetailPanel
           node={selected}
           totals={{ bitcoin: data.bitcoin.node_count, tor: data.tor.relay_count }}
+          isMobile={isMobile}
           onClose={() => setSelected(null)}
         />
       )}

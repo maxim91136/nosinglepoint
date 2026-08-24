@@ -49,6 +49,7 @@ export default function Home() {
         />
 
         <div
+          className="hero-title"
           style={{
             position: "absolute",
             top: "2rem",
@@ -58,6 +59,7 @@ export default function Home() {
             color: "#e8e6f0",
             fontFamily: "system-ui, sans-serif",
             pointerEvents: "none",
+            padding: "0 1rem",
           }}
         >
           <h1
@@ -83,6 +85,7 @@ export default function Home() {
         </div>
 
         <div
+          className="legend-box"
           style={{
             position: "absolute",
             bottom: "1rem",
@@ -97,6 +100,7 @@ export default function Home() {
             fontFamily: "system-ui, sans-serif",
             fontSize: "0.8rem",
             color: "#c9c4dc",
+            maxWidth: "min(16rem, calc(100vw - 2rem))",
           }}
         >
           {LEGEND_NODES.map((item) => (
@@ -126,12 +130,13 @@ export default function Home() {
             />
             <span>ASN hosts both — brighter = more dominant</span>
           </div>
-          <div style={{ marginTop: "0.15rem", color: "#8a84a0", fontSize: "0.72rem" }}>
+          <div className="legend-hint" style={{ marginTop: "0.15rem", color: "#8a84a0", fontSize: "0.72rem" }}>
             Node size = node/relay count per ASN
           </div>
         </div>
 
         <div
+          className="scroll-hint"
           style={{
             position: "absolute",
             bottom: "1rem",
@@ -146,6 +151,29 @@ export default function Home() {
           ↓ scores
         </div>
       </section>
+
+      <style jsx>{`
+        @media (max-width: 640px) {
+          .hero-title h1 {
+            font-size: 1.3rem !important;
+          }
+          .hero-title p {
+            font-size: 0.82rem !important;
+          }
+          .legend-box {
+            font-size: 0.7rem !important;
+            padding: 0.5rem 0.65rem !important;
+            max-width: min(11.5rem, 52vw) !important;
+            bottom: 0.75rem !important;
+          }
+          .legend-hint {
+            display: none;
+          }
+          .scroll-hint {
+            display: none;
+          }
+        }
+      `}</style>
 
       {data && <ScoreTable data={data} />}
       <RelatedProjects />
