@@ -2,14 +2,16 @@
 
 import { Suspense, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, type ThreeEvent } from "@react-three/fiber";
-import { Instances, Instance, OrbitControls, Stars, Line, Html } from "@react-three/drei";
+import { Instances, Instance, OrbitControls, Sparkles, Line, Html } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
-import { QuadraticBezierCurve3, Vector3 } from "three";
+import { QuadraticBezierCurve3, Vector3, IcosahedronGeometry, CanvasTexture } from "three";
 import type { Object3D } from "three";
 import { COLOR_BITCOIN, COLOR_TOR, COLOR_LINK } from "./colors";
 import type { NetworkData, NetworkNode, Connection, NetworkStats } from "./networkData";
 
 type Side = "bitcoin" | "tor";
+
+const GROUND_Y = -2.9;
 
 interface SelectedNode {
   asn: string;
@@ -62,10 +64,21 @@ interface ClusterEntry {
 
 function PulsingNode({ entry, onSelect }: { entry: ClusterEntry; onSelect: SelectHandler }) {
   const ref = useRef<Object3D>(null!);
+  const lastT = useRef(0);
+  // Touch-shy bloom: a cursor pass triggers a quick contraction that
+  // springs back, like Pandora's helicoradian recoiling from contact.
+  const flinchAt = useRef(-10);
 
   useFrame(({ clock }) => {
-    const pulse = 1 + 0.16 * Math.sin(clock.elapsedTime * 0.6 + entry.phase);
-    ref.current.scale.setScalar(entry.baseScale * pulse);
+    const t = clock.elapsedTime;
+    lastT.current = t;
+    const pulse = 1 + 0.16 * Math.sin(t * 0.6 + entry.phase);
+    const sinceFlinch = t - flinchAt.current;
+    const flinch =
+      sinceFlinch >= 0 && sinceFlinch < 1.1
+        ? 1 - 0.42 * Math.exp(-sinceFlinch * 5.5) * Math.cos(sinceFlinch * 13)
+        : 1;
+    ref.current.scale.setScalar(entry.baseScale * pulse * flinch);
   });
 
   return (
@@ -80,6 +93,7 @@ function PulsingNode({ entry, onSelect }: { entry: ClusterEntry; onSelect: Selec
       onPointerOver={(e: ThreeEvent<PointerEvent>) => {
         e.stopPropagation();
         document.body.style.cursor = "pointer";
+        flinchAt.current = lastT.current;
       }}
       onPointerOut={() => {
         document.body.style.cursor = "auto";
@@ -88,10 +102,37 @@ function PulsingNode({ entry, onSelect }: { entry: ClusterEntry; onSelect: Selec
   );
 }
 
+/**
+ * A single lumpy "spore/bud" shape, shared by every instance, built once by
+ * displacing an icosahedron's vertices along their normals with a smooth
+ * deterministic ripple. Reads as organic flora instead of a billiard ball,
+ * without the cost of per-instance custom geometry.
+ */
+function useBudGeometry() {
+  return useMemo(() => {
+    const geo = new IcosahedronGeometry(1, 3);
+    const pos = geo.attributes.position;
+    const v = new Vector3();
+    for (let i = 0; i < pos.count; i++) {
+      v.fromBufferAttribute(pos, i);
+      const n = v.clone().normalize();
+      const bump =
+        0.14 * Math.sin(n.x * 5.2 + 1.3) * Math.cos(n.y * 4.1) +
+        0.09 * Math.sin(n.z * 6.7 + n.x * 3.0);
+      v.addScaledVector(n, bump);
+      pos.setXYZ(i, v.x, v.y, v.z);
+    }
+    geo.computeVertexNormals();
+    return geo;
+  }, []);
+}
+
 function NodeCloud({ entries, onSelect }: { entries: ClusterEntry[]; onSelect: SelectHandler }) {
+  const budGeometry = useBudGeometry();
+
   return (
     <Instances limit={entries.length} range={entries.length}>
-      <sphereGeometry args={[1, 10, 10]} />
+      <primitive object={budGeometry} attach="geometry" />
       <meshBasicMaterial toneMapped={false} />
       {entries.map((e) => (
         <PulsingNode key={e.key} entry={e} onSelect={onSelect} />
@@ -105,11 +146,41 @@ interface LinkEntry {
   points: [number, number, number][];
   width: number;
   opacity: number;
+  speed: number;
+  offset: number;
+}
+
+/** A small glowing bead traveling along a root's length, like a nerve signal through Eywa. */
+function RootPulse({ link }: { link: LinkEntry }) {
+  const ref = useRef<Object3D>(null!);
+
+  useFrame(({ clock }) => {
+    const t = (clock.elapsedTime * link.speed + link.offset) % 1;
+    const idx = t * (link.points.length - 1);
+    const i0 = Math.floor(idx);
+    const i1 = Math.min(link.points.length - 1, i0 + 1);
+    const f = idx - i0;
+    const p0 = link.points[i0]!;
+    const p1 = link.points[i1]!;
+    ref.current.position.set(
+      p0[0] + (p1[0] - p0[0]) * f,
+      p0[1] + (p1[1] - p0[1]) * f,
+      p0[2] + (p1[2] - p0[2]) * f,
+    );
+  });
+
+  return (
+    <mesh ref={ref}>
+      <sphereGeometry args={[0.05, 8, 8]} />
+      <meshBasicMaterial color={COLOR_LINK} toneMapped={false} transparent opacity={0.95} />
+    </mesh>
+  );
 }
 
 /**
- * Cross-layer highlight: an organic bezier thread between an ASN's Bitcoin
- * cluster position and its Tor cluster position, for ASNs that host both.
+ * Cross-layer highlight: a root that dips underground between an ASN's
+ * Bitcoin cluster position and its Tor cluster position, for ASNs that
+ * host both — surfacing at each end rather than arcing through open air.
  * Thickness/brightness scale with the ASN's combined dominance so the
  * infrastructure that actually matters (e.g. one host running a big slice
  * of both networks) stands out instead of every incidental overlap.
@@ -128,17 +199,19 @@ function CrossLayerLinks({ nodes, connections }: { nodes: NetworkNode[]; connect
       const strength = c.dominance / maxDominance;
 
       const mid = from.clone().lerp(to, 0.5);
-      mid.y += 0.6 + 1.1 * strength;
+      mid.y = GROUND_Y + 0.35 + strength * 0.5;
 
       const curve = new QuadraticBezierCurve3(from, mid, to);
-      const points = curve.getPoints(24).map((p) => [p.x, p.y, p.z] as [number, number, number]);
+      const points = curve.getPoints(28).map((p) => [p.x, p.y, p.z] as [number, number, number]);
 
       return [
         {
           asn: c.asn,
           points,
           width: 0.6 + strength * 3.5,
-          opacity: 0.12 + strength * 0.55,
+          opacity: 0.14 + strength * 0.55,
+          speed: 0.05 + (phaseFor(c.asn, 9) / (Math.PI * 2)) * 0.09,
+          offset: phaseFor(c.asn, 5) / (Math.PI * 2),
         },
       ];
     });
@@ -156,6 +229,9 @@ function CrossLayerLinks({ nodes, connections }: { nodes: NetworkNode[]; connect
           opacity={link.opacity}
           toneMapped={false}
         />
+      ))}
+      {links.map((link) => (
+        <RootPulse key={`${link.asn}-pulse`} link={link} />
       ))}
     </>
   );
@@ -189,6 +265,49 @@ function ClusterLabel({
         </div>
       </div>
     </Html>
+  );
+}
+
+/** Dark soil gradient with faint bioluminescent glow pockets, baked once to a canvas texture. */
+function useGroundTexture() {
+  return useMemo(() => {
+    const size = 512;
+    const canvas = document.createElement("canvas");
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext("2d")!;
+
+    const base = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+    base.addColorStop(0, "#1c4a3e");
+    base.addColorStop(0.5, "#0d251f");
+    base.addColorStop(1, "#030a07");
+    ctx.fillStyle = base;
+    ctx.fillRect(0, 0, size, size);
+
+    for (let i = 0; i < 60; i++) {
+      const x = Math.random() * size;
+      const y = Math.random() * size;
+      const r = 8 + Math.random() * 30;
+      const glow = ctx.createRadialGradient(x, y, 0, x, y, r);
+      glow.addColorStop(0, "rgba(93, 232, 212, 0.28)");
+      glow.addColorStop(1, "rgba(93, 232, 212, 0)");
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    return new CanvasTexture(canvas);
+  }, []);
+}
+
+function GroundPlane() {
+  const texture = useGroundTexture();
+  return (
+    <mesh position={[0, GROUND_Y, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+      <planeGeometry args={[42, 24]} />
+      <meshBasicMaterial map={texture} toneMapped={false} transparent opacity={0.92} />
+    </mesh>
   );
 }
 
@@ -240,7 +359,8 @@ function SceneContents({
 
   return (
     <>
-      <Stars radius={60} depth={30} count={1500} factor={2} fade speed={0.3} />
+      <Sparkles count={180} scale={[17, 6, 11]} size={3} speed={0.3} color="#8fefe0" opacity={0.7} />
+      <GroundPlane />
       <NodeCloud entries={entries} onSelect={onSelect} />
       <CrossLayerLinks nodes={data.nodes} connections={data.connections} />
       <ClusterLabel side="bitcoin" count={data.bitcoin.node_count} stats={data.bitcoin} />
@@ -249,15 +369,17 @@ function SceneContents({
         enablePan={false}
         enableZoom={false}
         autoRotate
-        autoRotateSpeed={0.25}
+        autoRotateSpeed={0.2}
         enableDamping
         dampingFactor={0.05}
         minDistance={6}
         maxDistance={22}
+        minPolarAngle={Math.PI * 0.32}
+        maxPolarAngle={Math.PI * 0.58}
       />
       {highQuality && (
         <EffectComposer>
-          <Bloom intensity={1.1} luminanceThreshold={0.15} luminanceSmoothing={0.4} mipmapBlur />
+          <Bloom intensity={1.15} luminanceThreshold={0.15} luminanceSmoothing={0.4} mipmapBlur />
         </EffectComposer>
       )}
     </>
@@ -338,6 +460,15 @@ function DetailPanel({
   );
 }
 
+// Stable across renders: passing fresh object/array literals as Canvas
+// props on every parent re-render (e.g. after a click updates `selected`)
+// makes R3F treat them as changed config and reinitialize the renderer,
+// which can leave a blank frame under software rendering.
+const CAMERA_CONFIG = { position: [0, 4.2, 11] as [number, number, number], fov: 48 };
+const GL_CONFIG = { antialias: false, powerPreference: "high-performance" as const };
+const DPR_HIGH: [number, number] = [1, 2];
+const DPR_LOW = 1;
+
 export default function Scene({ data }: { data: NetworkData | null }) {
   const [highQuality, setHighQuality] = useState(true);
   const [selected, setSelected] = useState<SelectedNode | null>(null);
@@ -345,12 +476,12 @@ export default function Scene({ data }: { data: NetworkData | null }) {
   return (
     <div style={{ position: "relative", width: "100%", height: "100%" }}>
       <Canvas
-        camera={{ position: [0, 1.5, 13], fov: 52 }}
-        dpr={highQuality ? [1, 2] : 1}
-        gl={{ antialias: false, powerPreference: "high-performance" }}
+        camera={CAMERA_CONFIG}
+        dpr={highQuality ? DPR_HIGH : DPR_LOW}
+        gl={GL_CONFIG}
         onPointerMissed={() => setSelected(null)}
       >
-        <color attach="background" args={["#05050c"]} />
+        <color attach="background" args={["#040805"]} />
         <Suspense fallback={null}>
           {data && <SceneContents data={data} highQuality={highQuality} onSelect={setSelected} />}
         </Suspense>
