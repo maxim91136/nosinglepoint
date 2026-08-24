@@ -247,6 +247,7 @@ function SceneContents({
       <ClusterLabel side="tor" count={data.tor.relay_count} stats={data.tor} />
       <OrbitControls
         enablePan={false}
+        enableZoom={false}
         autoRotate
         autoRotateSpeed={0.25}
         enableDamping
