@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-24T14:41:58.955Z",
+  "timestamp": "2026-08-24T14:43:05.875Z",
   "bitcoin": {
     "network_name": "Bitcoin",
     "metric_source": "bitnodes.io + mempool.space",
