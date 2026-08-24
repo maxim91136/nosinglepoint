@@ -1,44 +1,13 @@
 "use client";
 
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, type ThreeEvent } from "@react-three/fiber";
 import { Instances, Instance, OrbitControls, Stars, Line, Html } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { QuadraticBezierCurve3, Vector3 } from "three";
 import type { Object3D } from "three";
 import { COLOR_BITCOIN, COLOR_TOR, COLOR_LINK } from "./colors";
-
-interface NetworkNode {
-  asn: string;
-  category: string;
-  providerName: string | null;
-  country: string;
-  x: number;
-  y: number;
-  z: number;
-  bitcoinCount: number;
-  torCount: number;
-}
-
-interface Connection {
-  asn: string;
-  dominance: number;
-}
-
-interface NetworkStats {
-  nakamoto_network: number;
-  nakamoto_infra: number;
-  hhi_infra: number;
-}
-
-interface NetworkData {
-  generated_at: string;
-  snapshot_date: string;
-  bitcoin: NetworkStats & { node_count: number };
-  tor: NetworkStats & { relay_count: number };
-  nodes: NetworkNode[];
-  connections: Connection[];
-}
+import type { NetworkData, NetworkNode, Connection, NetworkStats } from "./networkData";
 
 type Side = "bitcoin" | "tor";
 
@@ -368,17 +337,9 @@ function DetailPanel({
   );
 }
 
-export default function Scene() {
-  const [data, setData] = useState<NetworkData | null>(null);
+export default function Scene({ data }: { data: NetworkData | null }) {
   const [highQuality, setHighQuality] = useState(true);
   const [selected, setSelected] = useState<SelectedNode | null>(null);
-
-  useEffect(() => {
-    fetch("/data/network.json")
-      .then((r) => r.json())
-      .then(setData)
-      .catch(() => setData(null));
-  }, []);
 
   return (
     <div style={{ position: "relative", width: "100%", height: "100%" }}>

@@ -7,6 +7,7 @@ import path from "node:path";
 const ROOT = path.resolve(import.meta.dirname, "..", "..");
 const SNAPSHOTS_DIR = path.join(ROOT, "data", "snapshots");
 const LAYOUT_PATH = path.join(ROOT, "data", "layout", "asn-positions.json");
+const SCORES_PATH = path.join(ROOT, "data", "scores", "latest.json");
 const OUT_DIR = path.join(import.meta.dirname, "..", "public", "data");
 const OUT_PATH = path.join(OUT_DIR, "network.json");
 
@@ -22,6 +23,7 @@ function latestSnapshotFile() {
 const snapshotFile = latestSnapshotFile();
 const snapshot = JSON.parse(readFileSync(path.join(SNAPSHOTS_DIR, snapshotFile), "utf-8"));
 const layout = JSON.parse(readFileSync(LAYOUT_PATH, "utf-8"));
+const rollingAverages = JSON.parse(readFileSync(SCORES_PATH, "utf-8"));
 
 const positionByAsn = new Map(layout.positions.map((p) => [p.asn, p]));
 
@@ -82,6 +84,19 @@ const output = {
   },
   nodes,
   connections,
+  rollingAverage: {
+    window_days: rollingAverages.window_days,
+    bitcoin: {
+      avg_nakamoto_network: rollingAverages.bitcoin.avg_nakamoto_network,
+      avg_nakamoto_infra: rollingAverages.bitcoin.avg_nakamoto_infra,
+      avg_hhi_infra: rollingAverages.bitcoin.avg_hhi_infra,
+    },
+    tor: {
+      avg_nakamoto_network: rollingAverages.tor.avg_nakamoto_network,
+      avg_nakamoto_infra: rollingAverages.tor.avg_nakamoto_infra,
+      avg_hhi_infra: rollingAverages.tor.avg_hhi_infra,
+    },
+  },
 };
 
 mkdirSync(OUT_DIR, { recursive: true });
