@@ -5,3 +5,5 @@ dist/
 web/.next/
 web/out/
 web/next-env.d.ts
+web/public/data/
+web/tsconfig.tsbuildinfo

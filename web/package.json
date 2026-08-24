@@ -3,19 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run prebuild && next dev",
+    "prebuild": "node scripts/prepare-data.mjs",
     "build": "next build",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "next": "^16.3.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "three": "^0.182.0",
+    "@react-three/fiber": "^9.0.0",
+    "@react-three/drei": "^10.0.0",
+    "@react-three/postprocessing": "^3.0.4",
+    "postprocessing": "^6.36.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
+    "@types/three": "^0.182.0",
     "typescript": "^5.7.2"
   }
 }

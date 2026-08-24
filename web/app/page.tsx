@@ -1,25 +1,55 @@
+"use client";
+
+import dynamic from "next/dynamic";
+
+const Scene = dynamic(() => import("./Scene"), { ssr: false });
+
 export default function Home() {
   return (
     <main
       style={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "0.75rem",
-        background: "#0a0a12",
-        color: "#e8e6f0",
-        fontFamily: "system-ui, sans-serif",
-        textAlign: "center",
-        padding: "2rem",
+        position: "relative",
+        width: "100vw",
+        height: "100vh",
+        overflow: "hidden",
+        background: "#05050c",
       }}
     >
-      <h1 style={{ fontSize: "2rem", letterSpacing: "0.02em" }}>NoSinglePoint</h1>
-      <p style={{ color: "#9a94b0", maxWidth: "32rem" }}>
-        How centralized are the networks we call decentralized? Data pipeline is live.
-        Visualization coming soon.
-      </p>
+      <Scene />
+
+      <div
+        style={{
+          position: "absolute",
+          top: "2rem",
+          left: "50%",
+          transform: "translateX(-50%)",
+          textAlign: "center",
+          color: "#e8e6f0",
+          fontFamily: "system-ui, sans-serif",
+          pointerEvents: "none",
+        }}
+      >
+        <h1
+          style={{
+            fontSize: "1.75rem",
+            letterSpacing: "0.02em",
+            margin: 0,
+            textShadow: "0 2px 12px rgba(5,5,12,0.9), 0 0 4px rgba(5,5,12,0.9)",
+          }}
+        >
+          NoSinglePoint
+        </h1>
+        <p
+          style={{
+            color: "#c9c4dc",
+            margin: "0.4rem 0 0",
+            fontSize: "0.95rem",
+            textShadow: "0 2px 10px rgba(5,5,12,0.9), 0 0 4px rgba(5,5,12,0.9)",
+          }}
+        >
+          How centralized are the networks we call decentralized?
+        </p>
+      </div>
     </main>
   );
 }
