@@ -346,16 +346,17 @@ function useGroundTexture() {
     ctx.fillStyle = base;
     ctx.fillRect(0, 0, size, size);
 
-    // Branching root veins radiating outward, like Eywa's network glimpsed through soil.
-    ctx.strokeStyle = "rgba(93, 232, 212, 0.5)";
+    // Branching root veins radiating outward, like Eywa's network glimpsed through soil —
+    // kept faint so it reads as ground texture, not competing linework.
+    ctx.strokeStyle = "rgba(93, 232, 212, 0.14)";
     ctx.lineCap = "round";
-    const veinOrigins = 7;
+    const veinOrigins = 6;
     for (let v = 0; v < veinOrigins; v++) {
       let x = size / 2 + (Math.random() - 0.5) * size * 0.3;
       let y = size / 2 + (Math.random() - 0.5) * size * 0.3;
       let angle = Math.random() * Math.PI * 2;
-      let width = 2.2 + Math.random() * 1.4;
-      const steps = 14 + Math.floor(Math.random() * 10);
+      let width = 1.6 + Math.random() * 1.0;
+      const steps = 9 + Math.floor(Math.random() * 6);
       for (let s = 0; s < steps; s++) {
         angle += (Math.random() - 0.5) * 0.6;
         const len = 12 + Math.random() * 16;
@@ -369,7 +370,7 @@ function useGroundTexture() {
         x = nx;
         y = ny;
         width *= 0.94;
-        if (s > 4 && Math.random() < 0.18) {
+        if (s > 4 && Math.random() < 0.12) {
           genBranch(ctx, x, y, angle + (Math.random() > 0.5 ? 1 : -1) * 0.9, width * 0.7, 3);
         }
       }
