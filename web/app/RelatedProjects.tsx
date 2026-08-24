@@ -1,3 +1,5 @@
+import pkg from "../package.json";
+
 const PROJECTS = [
   {
     name: "SatoshisGrid",
@@ -69,6 +71,12 @@ export default function RelatedProjects() {
           </span>
           <a href="https://github.com/maxim91136/nosinglepoint" style={{ color: "#8a84a0" }}>
             View source on GitHub
+          </a>
+          <a
+            href={`https://github.com/maxim91136/nosinglepoint/releases/tag/v${pkg.version}`}
+            style={{ color: "#8a84a0" }}
+          >
+            v{pkg.version}
           </a>
         </div>
       </div>

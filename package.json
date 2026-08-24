@@ -1,6 +1,6 @@
 {
   "name": "nosinglepoint",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Visual meta-overview of decentralization scores for open public networks",
   "type": "module",
