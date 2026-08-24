@@ -3,6 +3,7 @@ import { fetchPoolShares } from "./sources/miningPools.js";
 import { fetchTorRelays } from "./sources/onionoo.js";
 import { resolveAsns } from "./asnLookup.js";
 import { buildSnapshot, writeSnapshot } from "./snapshot.js";
+import { computeRollingAverages, writeRollingAverages } from "./rollingAverage.js";
 
 async function main() {
   console.log("Fetching Bitcoin nodes, mining pools, and Tor relays...");
@@ -36,6 +37,12 @@ async function main() {
 
   const filePath = writeSnapshot(snapshot);
   console.log(`Snapshot written to ${filePath}`);
+
+  const rollingAverages = computeRollingAverages();
+  const scoresPath = writeRollingAverages(rollingAverages);
+  console.log(
+    `Rolling averages (${rollingAverages.window_days}-day window) written to ${scoresPath}`,
+  );
 }
 
 main().catch((err) => {
