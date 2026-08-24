@@ -46,6 +46,23 @@ const nodes = [...asns]
   })
   .filter((n) => n !== null);
 
+// Cross-layer highlight: ASNs present in both networks, ranked by combined
+// dominance (their share of Bitcoin nodes plus their share of Tor relays).
+// Only the top N are surfaced as connections — with 410+ overlapping ASNs
+// in a typical snapshot, drawing all of them would be a hairball; the
+// point is to highlight the infrastructure that matters, not enumerate
+// every incidental overlap.
+const TOP_CONNECTIONS = 50;
+
+const connections = nodes
+  .filter((n) => n.bitcoinCount > 0 && n.torCount > 0)
+  .map((n) => ({
+    asn: n.asn,
+    dominance: n.bitcoinCount / snapshot.bitcoin.node_count + n.torCount / snapshot.tor.relay_count,
+  }))
+  .sort((a, b) => b.dominance - a.dominance)
+  .slice(0, TOP_CONNECTIONS);
+
 const output = {
   generated_at: new Date().toISOString(),
   snapshot_date: snapshotFile.replace(".json", ""),
@@ -62,6 +79,7 @@ const output = {
     hhi_infra: snapshot.tor.hhi_infra,
   },
   nodes,
+  connections,
 };
 
 mkdirSync(OUT_DIR, { recursive: true });

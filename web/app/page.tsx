@@ -1,14 +1,13 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { COLOR_BITCOIN, COLOR_TOR, COLOR_BOTH } from "./colors";
+import { COLOR_BITCOIN, COLOR_TOR, COLOR_LINK } from "./colors";
 
 const Scene = dynamic(() => import("./Scene"), { ssr: false });
 
-const LEGEND_ITEMS = [
-  { color: COLOR_BITCOIN, label: "Bitcoin only" },
-  { color: COLOR_TOR, label: "Tor only" },
-  { color: COLOR_BOTH, label: "Both networks" },
+const LEGEND_NODES = [
+  { color: COLOR_BITCOIN, label: "Bitcoin node cluster" },
+  { color: COLOR_TOR, label: "Tor relay cluster" },
 ];
 
 export default function Home() {
@@ -75,7 +74,7 @@ export default function Home() {
           color: "#c9c4dc",
         }}
       >
-        {LEGEND_ITEMS.map((item) => (
+        {LEGEND_NODES.map((item) => (
           <div key={item.label} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
             <span
               style={{
@@ -90,6 +89,18 @@ export default function Home() {
             <span>{item.label}</span>
           </div>
         ))}
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <span
+            style={{
+              width: "0.9rem",
+              height: "2px",
+              background: COLOR_LINK,
+              boxShadow: `0 0 6px ${COLOR_LINK}`,
+              flexShrink: 0,
+            }}
+          />
+          <span>ASN hosts both — brighter = more dominant</span>
+        </div>
         <div style={{ marginTop: "0.15rem", color: "#8a84a0", fontSize: "0.72rem" }}>
           Node size = node/relay count per ASN
         </div>
