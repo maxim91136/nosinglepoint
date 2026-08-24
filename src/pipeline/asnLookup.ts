@@ -13,6 +13,8 @@ const CHUNK_SIZE = 1000;
 export interface AsnInfo {
   asn: string;
   asName: string;
+  /** ISO 3166-1 alpha-2 country code, as reported by the whois registry. */
+  cc: string;
   resolvedAt: string;
 }
 
@@ -55,12 +57,13 @@ function queryCymru(ips: string[]): Promise<Map<string, AsnInfo>> {
       // First line is the column header ("AS | IP | BGP Prefix | CC | Registry | Allocated | AS Name").
       for (const line of lines.slice(1)) {
         const fields = line.split("|").map((f) => f.trim());
-        const [asn, ip, , , , , asName] = fields;
+        const [asn, ip, , cc, , , asName] = fields;
         if (!asn || !ip) continue;
         if (asn === "NA") continue; // no route/ASN found for this IP
         result.set(ip, {
           asn: `AS${asn}`,
           asName: asName ?? "Unknown",
+          cc: cc || "??",
           resolvedAt: new Date().toISOString(),
         });
       }
@@ -84,7 +87,8 @@ function chunk<T>(items: T[], size: number): T[][] {
 export async function resolveAsns(ips: string[]): Promise<Map<string, AsnInfo>> {
   const cache = loadCache();
   const uniqueIps = [...new Set(ips)];
-  const uncached = uniqueIps.filter((ip) => !(ip in cache));
+  // Also re-queries entries from before the `cc` field existed, as a one-time cache migration.
+  const uncached = uniqueIps.filter((ip) => !(ip in cache) || cache[ip]!.cc === undefined);
 
   if (uncached.length > 0) {
     for (const batch of chunk(uncached, CHUNK_SIZE)) {
