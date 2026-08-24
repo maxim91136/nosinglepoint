@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { COLOR_BITCOIN, COLOR_TOR, COLOR_LINK } from "./colors";
 import type { NetworkData } from "./networkData";
 import ScoreTable from "./ScoreTable";
+import RelatedProjects from "./RelatedProjects";
 
 const Scene = dynamic(() => import("./Scene"), { ssr: false });
 
@@ -147,6 +148,7 @@ export default function Home() {
       </section>
 
       {data && <ScoreTable data={data} />}
+      <RelatedProjects />
     </main>
   );
 }

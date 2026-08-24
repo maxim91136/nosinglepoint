@@ -1,6 +1,8 @@
 // Shared shape of public/data/network.json (see scripts/prepare-data.mjs),
 // used by the scene, the score table, and the page that fetches it once.
 
+export type Side = "bitcoin" | "tor";
+
 export interface NetworkNode {
   asn: string;
   category: string;

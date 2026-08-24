@@ -7,9 +7,7 @@ import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { QuadraticBezierCurve3, Vector3, IcosahedronGeometry, CanvasTexture } from "three";
 import type { Object3D } from "three";
 import { COLOR_BITCOIN, COLOR_TOR, COLOR_LINK } from "./colors";
-import type { NetworkData, NetworkNode, Connection, NetworkStats } from "./networkData";
-
-type Side = "bitcoin" | "tor";
+import type { NetworkData, NetworkNode, Connection, NetworkStats, Side } from "./networkData";
 
 const GROUND_Y = -2.9;
 
