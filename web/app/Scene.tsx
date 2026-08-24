@@ -25,19 +25,37 @@ interface SelectedNode {
 
 type SelectHandler = (node: SelectedNode | null) => void;
 
-const RADIUS = 2.6;
+const BASE_RADIUS = 3.0;
+const MIN_RADIUS_RATIO = 0.3;
 const CLUSTER_OFFSET = 4.2;
+
+interface ClusterRadii {
+  bitcoin: number;
+  tor: number;
+}
+
+/** Cluster size reflects the real node/relay count — Tor's ~10k relays render smaller than Bitcoin's ~25k nodes, not an arbitrary equal split. */
+function computeRadii(data: NetworkData): ClusterRadii {
+  const maxCount = Math.max(data.bitcoin.node_count, data.tor.relay_count, 1);
+  return {
+    bitcoin: BASE_RADIUS * Math.max(MIN_RADIUS_RATIO, data.bitcoin.node_count / maxCount),
+    tor: BASE_RADIUS * Math.max(MIN_RADIUS_RATIO, data.tor.relay_count / maxCount),
+  };
+}
 
 function clusterPosition(
   node: { x: number; y: number; z: number },
   side: Side,
+  radii: ClusterRadii,
 ): [number, number, number] {
+  const r = side === "bitcoin" ? radii.bitcoin : radii.tor;
   const offset = side === "bitcoin" ? -CLUSTER_OFFSET : CLUSTER_OFFSET;
-  return [node.x * RADIUS + offset, node.y * RADIUS, node.z * RADIUS];
+  return [node.x * r + offset, node.y * r, node.z * r];
 }
 
-function sizeFor(count: number): number {
-  return 0.02 + 0.018 * Math.log2(1 + count);
+/** `radiusScale` keeps node grain size proportional to its cluster's radius, so a smaller cluster (e.g. Tor) doesn't turn into an overlapping blur of oversized nodes. */
+function sizeFor(count: number, radiusScale: number): number {
+  return (0.02 + 0.018 * Math.log2(1 + count)) * radiusScale;
 }
 
 /**
@@ -117,8 +135,9 @@ function useBudGeometry() {
       v.fromBufferAttribute(pos, i);
       const n = v.clone().normalize();
       const bump =
-        0.14 * Math.sin(n.x * 5.2 + 1.3) * Math.cos(n.y * 4.1) +
-        0.09 * Math.sin(n.z * 6.7 + n.x * 3.0);
+        0.22 * Math.sin(n.x * 5.2 + 1.3) * Math.cos(n.y * 4.1) +
+        0.15 * Math.sin(n.z * 6.7 + n.x * 3.0) +
+        0.08 * Math.sin(n.y * 9.1 + n.z * 4.4);
       v.addScaledVector(n, bump);
       pos.setXYZ(i, v.x, v.y, v.z);
     }
@@ -185,7 +204,15 @@ function RootPulse({ link }: { link: LinkEntry }) {
  * infrastructure that actually matters (e.g. one host running a big slice
  * of both networks) stands out instead of every incidental overlap.
  */
-function CrossLayerLinks({ nodes, connections }: { nodes: NetworkNode[]; connections: Connection[] }) {
+function CrossLayerLinks({
+  nodes,
+  connections,
+  radii,
+}: {
+  nodes: NetworkNode[];
+  connections: Connection[];
+  radii: ClusterRadii;
+}) {
   const links = useMemo<LinkEntry[]>(() => {
     const byAsn = new Map(nodes.map((n) => [n.asn, n]));
     const maxDominance = Math.max(...connections.map((c) => c.dominance), 0.0001);
@@ -194,8 +221,8 @@ function CrossLayerLinks({ nodes, connections }: { nodes: NetworkNode[]; connect
       const node = byAsn.get(c.asn);
       if (!node) return [];
 
-      const from = new Vector3(...clusterPosition(node, "bitcoin"));
-      const to = new Vector3(...clusterPosition(node, "tor"));
+      const from = new Vector3(...clusterPosition(node, "bitcoin", radii));
+      const to = new Vector3(...clusterPosition(node, "tor", radii));
       const strength = c.dominance / maxDominance;
 
       const mid = from.clone().lerp(to, 0.5);
@@ -215,7 +242,7 @@ function CrossLayerLinks({ nodes, connections }: { nodes: NetworkNode[]; connect
         },
       ];
     });
-  }, [nodes, connections]);
+  }, [nodes, connections, radii]);
 
   return (
     <>
@@ -241,18 +268,21 @@ function ClusterLabel({
   side,
   count,
   stats,
+  radii,
 }: {
   side: Side;
   count: number;
   stats: NetworkStats;
+  radii: ClusterRadii;
 }) {
   const x = side === "bitcoin" ? -CLUSTER_OFFSET : CLUSTER_OFFSET;
+  const r = side === "bitcoin" ? radii.bitcoin : radii.tor;
   const color = side === "bitcoin" ? COLOR_BITCOIN : COLOR_TOR;
   const unit = side === "bitcoin" ? "nodes" : "relays";
   const shadow = "0 0 8px rgba(5,5,12,0.9), 0 0 3px rgba(5,5,12,0.9)";
 
   return (
-    <Html position={[x, RADIUS + 0.9, 0]} center style={{ pointerEvents: "none" }}>
+    <Html position={[x, r + 0.9, 0]} center style={{ pointerEvents: "none" }}>
       <div style={{ textAlign: "center", fontFamily: "system-ui, sans-serif", whiteSpace: "nowrap" }}>
         <div style={{ color, fontSize: "14px", fontWeight: 600, letterSpacing: "0.08em", textShadow: shadow }}>
           {side === "bitcoin" ? "BITCOIN" : "TOR"}
@@ -266,6 +296,38 @@ function ClusterLabel({
       </div>
     </Html>
   );
+}
+
+/** Recursive side-branch for the ground texture's root veins. */
+function genBranch(
+  ctx: CanvasRenderingContext2D,
+  x0: number,
+  y0: number,
+  angle: number,
+  width: number,
+  depth: number,
+) {
+  if (depth <= 0 || width < 0.3) return;
+  let x = x0;
+  let y = y0;
+  let a = angle;
+  let w = width;
+  const steps = 4 + Math.floor(Math.random() * 4);
+  for (let s = 0; s < steps; s++) {
+    a += (Math.random() - 0.5) * 0.5;
+    const len = 8 + Math.random() * 10;
+    const nx = x + Math.cos(a) * len;
+    const ny = y + Math.sin(a) * len;
+    ctx.lineWidth = w;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(nx, ny);
+    ctx.stroke();
+    x = nx;
+    y = ny;
+    w *= 0.9;
+  }
+  genBranch(ctx, x, y, a + (Math.random() > 0.5 ? 1 : -1) * 0.8, w * 0.7, depth - 1);
 }
 
 /** Dark soil gradient with faint bioluminescent glow pockets, baked once to a canvas texture. */
@@ -284,12 +346,41 @@ function useGroundTexture() {
     ctx.fillStyle = base;
     ctx.fillRect(0, 0, size, size);
 
-    for (let i = 0; i < 60; i++) {
+    // Branching root veins radiating outward, like Eywa's network glimpsed through soil.
+    ctx.strokeStyle = "rgba(93, 232, 212, 0.5)";
+    ctx.lineCap = "round";
+    const veinOrigins = 7;
+    for (let v = 0; v < veinOrigins; v++) {
+      let x = size / 2 + (Math.random() - 0.5) * size * 0.3;
+      let y = size / 2 + (Math.random() - 0.5) * size * 0.3;
+      let angle = Math.random() * Math.PI * 2;
+      let width = 2.2 + Math.random() * 1.4;
+      const steps = 14 + Math.floor(Math.random() * 10);
+      for (let s = 0; s < steps; s++) {
+        angle += (Math.random() - 0.5) * 0.6;
+        const len = 12 + Math.random() * 16;
+        const nx = x + Math.cos(angle) * len;
+        const ny = y + Math.sin(angle) * len;
+        ctx.lineWidth = width;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(nx, ny);
+        ctx.stroke();
+        x = nx;
+        y = ny;
+        width *= 0.94;
+        if (s > 4 && Math.random() < 0.18) {
+          genBranch(ctx, x, y, angle + (Math.random() > 0.5 ? 1 : -1) * 0.9, width * 0.7, 3);
+        }
+      }
+    }
+
+    for (let i = 0; i < 50; i++) {
       const x = Math.random() * size;
       const y = Math.random() * size;
-      const r = 8 + Math.random() * 30;
+      const r = 8 + Math.random() * 26;
       const glow = ctx.createRadialGradient(x, y, 0, x, y, r);
-      glow.addColorStop(0, "rgba(93, 232, 212, 0.28)");
+      glow.addColorStop(0, "rgba(93, 232, 212, 0.24)");
       glow.addColorStop(1, "rgba(93, 232, 212, 0)");
       ctx.fillStyle = glow;
       ctx.beginPath();
@@ -320,6 +411,11 @@ function SceneContents({
   highQuality: boolean;
   onSelect: SelectHandler;
 }) {
+  const radii = useMemo<ClusterRadii>(
+    () => computeRadii(data),
+    [data.bitcoin.node_count, data.tor.relay_count],
+  );
+
   const entries = useMemo<ClusterEntry[]>(() => {
     const out: ClusterEntry[] = [];
     for (const n of data.nodes) {
@@ -336,9 +432,9 @@ function SceneContents({
       if (n.bitcoinCount > 0) {
         out.push({
           key: `${n.asn}-btc`,
-          position: clusterPosition(n, "bitcoin"),
+          position: clusterPosition(n, "bitcoin", radii),
           color: COLOR_BITCOIN,
-          baseScale: sizeFor(n.bitcoinCount),
+          baseScale: sizeFor(n.bitcoinCount, radii.bitcoin / BASE_RADIUS),
           phase: phaseFor(n.asn, 1),
           selection: { ...base, side: "bitcoin" },
         });
@@ -346,25 +442,25 @@ function SceneContents({
       if (n.torCount > 0) {
         out.push({
           key: `${n.asn}-tor`,
-          position: clusterPosition(n, "tor"),
+          position: clusterPosition(n, "tor", radii),
           color: COLOR_TOR,
-          baseScale: sizeFor(n.torCount),
+          baseScale: sizeFor(n.torCount, radii.tor / BASE_RADIUS),
           phase: phaseFor(n.asn, 2),
           selection: { ...base, side: "tor" },
         });
       }
     }
     return out;
-  }, [data.nodes]);
+  }, [data.nodes, radii]);
 
   return (
     <>
       <Sparkles count={180} scale={[17, 6, 11]} size={3} speed={0.3} color="#8fefe0" opacity={0.7} />
       <GroundPlane />
       <NodeCloud entries={entries} onSelect={onSelect} />
-      <CrossLayerLinks nodes={data.nodes} connections={data.connections} />
-      <ClusterLabel side="bitcoin" count={data.bitcoin.node_count} stats={data.bitcoin} />
-      <ClusterLabel side="tor" count={data.tor.relay_count} stats={data.tor} />
+      <CrossLayerLinks nodes={data.nodes} connections={data.connections} radii={radii} />
+      <ClusterLabel side="bitcoin" count={data.bitcoin.node_count} stats={data.bitcoin} radii={radii} />
+      <ClusterLabel side="tor" count={data.tor.relay_count} stats={data.tor} radii={radii} />
       <OrbitControls
         enablePan={false}
         enableZoom={false}
@@ -379,7 +475,7 @@ function SceneContents({
       />
       {highQuality && (
         <EffectComposer>
-          <Bloom intensity={1.15} luminanceThreshold={0.15} luminanceSmoothing={0.4} mipmapBlur />
+          <Bloom intensity={1.2} luminanceThreshold={0.22} luminanceSmoothing={0.4} mipmapBlur />
         </EffectComposer>
       )}
     </>

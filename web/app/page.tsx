@@ -35,6 +35,18 @@ export default function Home() {
       >
         <Scene data={data} />
 
+        {/* Canopy shadow: frames the scene as a clearing glimpsed from
+            beneath the jungle roof, rather than open sky. */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "radial-gradient(ellipse 90% 55% at 50% 0%, rgba(2,4,3,0.75) 0%, rgba(2,4,3,0) 45%), radial-gradient(ellipse 70% 40% at 50% 100%, rgba(2,4,3,0.5) 0%, rgba(2,4,3,0) 55%)",
+            pointerEvents: "none",
+          }}
+        />
+
         <div
           style={{
             position: "absolute",
