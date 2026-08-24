@@ -460,11 +460,13 @@ function SceneContents({
   data,
   highQuality,
   isMobile,
+  exploreMode,
   onSelect,
 }: {
   data: NetworkData;
   highQuality: boolean;
   isMobile: boolean;
+  exploreMode: boolean;
   onSelect: SelectHandler;
 }) {
   const radii = useMemo<ClusterRadii>(
@@ -525,19 +527,32 @@ function SceneContents({
       <CrossLayerLinks nodes={data.nodes} connections={data.connections} radii={radii} />
       <ClusterLabel side="bitcoin" count={data.bitcoin.node_count} stats={data.bitcoin} radii={radii} />
       <ClusterLabel side="tor" count={data.tor.relay_count} stats={data.tor} radii={radii} />
-      <OrbitControls
-        enablePan={false}
-        enableZoom={false}
-        enableRotate={!isMobile}
-        autoRotate
-        autoRotateSpeed={0.2}
-        enableDamping
-        dampingFactor={0.05}
-        minDistance={6}
-        maxDistance={32}
-        minPolarAngle={Math.PI * 0.32}
-        maxPolarAngle={Math.PI * 0.58}
-      />
+      {/*
+       * On mobile, OrbitControls is only mounted while exploreMode is on.
+       * Its connect() sets `domElement.style.touchAction = 'none'` on
+       * R3F's event-connected wrapper unconditionally, regardless of the
+       * enabled/enableRotate props — so merely having it mounted, even
+       * fully disabled, silently kills native touch scroll on the whole
+       * page. Unmounting it (rather than toggling `enabled`) is the only
+       * way to keep touch-action untouched until the user opts in via the
+       * "explore" toggle; on unmount its cleanup restores touchAction to
+       * 'auto'. Desktop is unaffected by this and keeps it always mounted.
+       */}
+      {(!isMobile || exploreMode) && (
+        <OrbitControls
+          enablePan={false}
+          enableZoom={isMobile}
+          enableRotate
+          autoRotate={!exploreMode}
+          autoRotateSpeed={0.8}
+          enableDamping
+          dampingFactor={0.05}
+          minDistance={6}
+          maxDistance={32}
+          minPolarAngle={Math.PI * 0.32}
+          maxPolarAngle={Math.PI * 0.58}
+        />
+      )}
       {highQuality && (
         <EffectComposer>
           <Bloom intensity={1.2} luminanceThreshold={0.22} luminanceSmoothing={0.4} mipmapBlur />
@@ -639,6 +654,7 @@ export default function Scene({ data }: { data: NetworkData | null }) {
   const isMobile = useIsMobile();
   const [highQuality, setHighQuality] = useState(true);
   const [selected, setSelected] = useState<SelectedNode | null>(null);
+  const [exploreMode, setExploreMode] = useState(false);
   const autoQualitySet = useRef(false);
 
   // Default effects off on phones/small screens (once), without fighting a
@@ -665,6 +681,7 @@ export default function Scene({ data }: { data: NetworkData | null }) {
               data={data}
               highQuality={highQuality}
               isMobile={isMobile}
+              exploreMode={exploreMode}
               onSelect={setSelected}
             />
           )}
@@ -688,6 +705,27 @@ export default function Scene({ data }: { data: NetworkData | null }) {
       >
         {highQuality ? "Effects: High" : "Effects: Low"}
       </button>
+
+      {isMobile && (
+        <button
+          onClick={() => setExploreMode((e) => !e)}
+          style={{
+            position: "absolute",
+            bottom: "1rem",
+            right: "1rem",
+            background: exploreMode ? "rgba(201,104,214,0.85)" : "rgba(20,18,32,0.7)",
+            color: exploreMode ? "#1a0f20" : "#c9c4dc",
+            border: `1px solid ${exploreMode ? "#c968d6" : "#3a3450"}`,
+            borderRadius: "0.4rem",
+            padding: "0.5rem 0.9rem",
+            fontSize: "0.8rem",
+            fontWeight: exploreMode ? 600 : 400,
+            cursor: "pointer",
+          }}
+        >
+          {exploreMode ? "✓ Done" : "↔ Explore"}
+        </button>
+      )}
 
       {selected && data && (
         <DetailPanel
