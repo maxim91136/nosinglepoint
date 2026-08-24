@@ -1,8 +1,15 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { COLOR_BITCOIN, COLOR_TOR, COLOR_BOTH } from "./colors";
 
 const Scene = dynamic(() => import("./Scene"), { ssr: false });
+
+const LEGEND_ITEMS = [
+  { color: COLOR_BITCOIN, label: "Bitcoin only" },
+  { color: COLOR_TOR, label: "Tor only" },
+  { color: COLOR_BOTH, label: "Both networks" },
+];
 
 export default function Home() {
   return (
@@ -49,6 +56,43 @@ export default function Home() {
         >
           How centralized are the networks we call decentralized?
         </p>
+      </div>
+
+      <div
+        style={{
+          position: "absolute",
+          bottom: "1rem",
+          left: "1rem",
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.4rem",
+          background: "rgba(20,18,32,0.7)",
+          border: "1px solid #3a3450",
+          borderRadius: "0.4rem",
+          padding: "0.6rem 0.85rem",
+          fontFamily: "system-ui, sans-serif",
+          fontSize: "0.8rem",
+          color: "#c9c4dc",
+        }}
+      >
+        {LEGEND_ITEMS.map((item) => (
+          <div key={item.label} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <span
+              style={{
+                width: "0.65rem",
+                height: "0.65rem",
+                borderRadius: "50%",
+                background: item.color,
+                boxShadow: `0 0 6px ${item.color}`,
+                flexShrink: 0,
+              }}
+            />
+            <span>{item.label}</span>
+          </div>
+        ))}
+        <div style={{ marginTop: "0.15rem", color: "#8a84a0", fontSize: "0.72rem" }}>
+          Node size = node/relay count per ASN
+        </div>
       </div>
     </main>
   );

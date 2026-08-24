@@ -5,6 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Instances, Instance, OrbitControls, Stars } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import type { Object3D } from "three";
+import { COLOR_BITCOIN, COLOR_TOR, COLOR_BOTH } from "./colors";
 
 interface NetworkNode {
   asn: string;
@@ -35,10 +36,6 @@ interface NetworkData {
 }
 
 const RADIUS = 3.4;
-// Muted bio-violet/turquoise/amber, not neon.
-const COLOR_BITCOIN = "#3fc9c2";
-const COLOR_TOR = "#c99a4a";
-const COLOR_BOTH = "#9376d1";
 
 function colorFor(node: NetworkNode): string {
   const hasBtc = node.bitcoinCount > 0;
