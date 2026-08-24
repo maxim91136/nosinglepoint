@@ -4,6 +4,7 @@ import { fetchTorRelays } from "./sources/onionoo.js";
 import { resolveAsns } from "./asnLookup.js";
 import { buildSnapshot, writeSnapshot } from "./snapshot.js";
 import { computeRollingAverages, writeRollingAverages } from "./rollingAverage.js";
+import { computeAsnLayout, writeAsnLayout } from "./layout.js";
 
 async function main() {
   console.log("Fetching Bitcoin nodes, mining pools, and Tor relays...");
@@ -43,6 +44,10 @@ async function main() {
   console.log(
     `Rolling averages (${rollingAverages.window_days}-day window) written to ${scoresPath}`,
   );
+
+  const layout = computeAsnLayout();
+  const layoutPath = writeAsnLayout(layout);
+  console.log(`ASN sphere layout (${layout.asn_count} ASNs) written to ${layoutPath}`);
 }
 
 main().catch((err) => {
