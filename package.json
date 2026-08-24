@@ -1,0 +1,16 @@
+{
+  "name": "nosinglepoint",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Visual meta-overview of decentralization scores for open public networks",
+  "type": "module",
+  "scripts": {
+    "pipeline": "tsx src/pipeline/run.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
