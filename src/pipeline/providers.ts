@@ -18,3 +18,8 @@ const providers: Record<string, ProviderEntry> = JSON.parse(
 export function categorizeAsn(asn: string): string {
   return providers[asn]?.category ?? "Unknown";
 }
+
+/** Hand-maintained ASN -> provider name lookup. Null for ASNs outside the curated list. */
+export function providerName(asn: string): string | null {
+  return providers[asn]?.name ?? null;
+}

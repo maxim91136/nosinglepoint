@@ -37,6 +37,8 @@ const nodes = [...asns]
     return {
       asn,
       category: position.category,
+      providerName: position.providerName,
+      country: position.country,
       x: position.x,
       y: position.y,
       z: position.z,

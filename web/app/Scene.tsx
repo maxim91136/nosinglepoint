@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, type ThreeEvent } from "@react-three/fiber";
 import { Instances, Instance, OrbitControls, Stars, Line, Html } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { QuadraticBezierCurve3, Vector3 } from "three";
@@ -11,6 +11,8 @@ import { COLOR_BITCOIN, COLOR_TOR, COLOR_LINK } from "./colors";
 interface NetworkNode {
   asn: string;
   category: string;
+  providerName: string | null;
+  country: string;
   x: number;
   y: number;
   z: number;
@@ -23,26 +25,34 @@ interface Connection {
   dominance: number;
 }
 
+interface NetworkStats {
+  nakamoto_network: number;
+  nakamoto_infra: number;
+  hhi_infra: number;
+}
+
 interface NetworkData {
   generated_at: string;
   snapshot_date: string;
-  bitcoin: {
-    node_count: number;
-    nakamoto_network: number;
-    nakamoto_infra: number;
-    hhi_infra: number;
-  };
-  tor: {
-    relay_count: number;
-    nakamoto_network: number;
-    nakamoto_infra: number;
-    hhi_infra: number;
-  };
+  bitcoin: NetworkStats & { node_count: number };
+  tor: NetworkStats & { relay_count: number };
   nodes: NetworkNode[];
   connections: Connection[];
 }
 
 type Side = "bitcoin" | "tor";
+
+interface SelectedNode {
+  asn: string;
+  side: Side;
+  category: string;
+  providerName: string | null;
+  country: string;
+  bitcoinCount: number;
+  torCount: number;
+}
+
+type SelectHandler = (node: SelectedNode | null) => void;
 
 const RADIUS = 2.6;
 const CLUSTER_OFFSET = 4.2;
@@ -78,9 +88,10 @@ interface ClusterEntry {
   color: string;
   baseScale: number;
   phase: number;
+  selection: SelectedNode;
 }
 
-function PulsingNode({ entry }: { entry: ClusterEntry }) {
+function PulsingNode({ entry, onSelect }: { entry: ClusterEntry; onSelect: SelectHandler }) {
   const ref = useRef<Object3D>(null!);
 
   useFrame(({ clock }) => {
@@ -88,16 +99,33 @@ function PulsingNode({ entry }: { entry: ClusterEntry }) {
     ref.current.scale.setScalar(entry.baseScale * pulse);
   });
 
-  return <Instance ref={ref} position={entry.position} color={entry.color} />;
+  return (
+    <Instance
+      ref={ref}
+      position={entry.position}
+      color={entry.color}
+      onClick={(e: ThreeEvent<MouseEvent>) => {
+        e.stopPropagation();
+        onSelect(entry.selection);
+      }}
+      onPointerOver={(e: ThreeEvent<PointerEvent>) => {
+        e.stopPropagation();
+        document.body.style.cursor = "pointer";
+      }}
+      onPointerOut={() => {
+        document.body.style.cursor = "auto";
+      }}
+    />
+  );
 }
 
-function NodeCloud({ entries }: { entries: ClusterEntry[] }) {
+function NodeCloud({ entries, onSelect }: { entries: ClusterEntry[]; onSelect: SelectHandler }) {
   return (
     <Instances limit={entries.length} range={entries.length}>
       <sphereGeometry args={[1, 10, 10]} />
       <meshBasicMaterial toneMapped={false} />
       {entries.map((e) => (
-        <PulsingNode key={e.key} entry={e} />
+        <PulsingNode key={e.key} entry={e} onSelect={onSelect} />
       ))}
     </Instances>
   );
@@ -164,31 +192,59 @@ function CrossLayerLinks({ nodes, connections }: { nodes: NetworkNode[]; connect
   );
 }
 
-function ClusterLabel({ side }: { side: Side }) {
+function ClusterLabel({
+  side,
+  count,
+  stats,
+}: {
+  side: Side;
+  count: number;
+  stats: NetworkStats;
+}) {
   const x = side === "bitcoin" ? -CLUSTER_OFFSET : CLUSTER_OFFSET;
+  const color = side === "bitcoin" ? COLOR_BITCOIN : COLOR_TOR;
+  const unit = side === "bitcoin" ? "nodes" : "relays";
+  const shadow = "0 0 8px rgba(5,5,12,0.9), 0 0 3px rgba(5,5,12,0.9)";
+
   return (
     <Html position={[x, RADIUS + 0.9, 0]} center style={{ pointerEvents: "none" }}>
-      <div
-        style={{
-          color: side === "bitcoin" ? COLOR_BITCOIN : COLOR_TOR,
-          fontFamily: "system-ui, sans-serif",
-          fontSize: "14px",
-          fontWeight: 600,
-          letterSpacing: "0.08em",
-          textShadow: "0 0 8px rgba(5,5,12,0.9), 0 0 3px rgba(5,5,12,0.9)",
-          whiteSpace: "nowrap",
-        }}
-      >
-        {side === "bitcoin" ? "BITCOIN" : "TOR"}
+      <div style={{ textAlign: "center", fontFamily: "system-ui, sans-serif", whiteSpace: "nowrap" }}>
+        <div style={{ color, fontSize: "14px", fontWeight: 600, letterSpacing: "0.08em", textShadow: shadow }}>
+          {side === "bitcoin" ? "BITCOIN" : "TOR"}
+        </div>
+        <div style={{ color: "#c9c4dc", fontSize: "11px", marginTop: "2px", textShadow: shadow }}>
+          {count.toLocaleString()} {unit}
+        </div>
+        <div style={{ color: "#8a84a0", fontSize: "10px", marginTop: "1px", textShadow: shadow }}>
+          Nakamoto: {stats.nakamoto_network} network · {stats.nakamoto_infra} infra
+        </div>
       </div>
     </Html>
   );
 }
 
-function SceneContents({ data, highQuality }: { data: NetworkData; highQuality: boolean }) {
+function SceneContents({
+  data,
+  highQuality,
+  onSelect,
+}: {
+  data: NetworkData;
+  highQuality: boolean;
+  onSelect: SelectHandler;
+}) {
   const entries = useMemo<ClusterEntry[]>(() => {
     const out: ClusterEntry[] = [];
     for (const n of data.nodes) {
+      const base: SelectedNode = {
+        asn: n.asn,
+        side: "bitcoin",
+        category: n.category,
+        providerName: n.providerName,
+        country: n.country,
+        bitcoinCount: n.bitcoinCount,
+        torCount: n.torCount,
+      };
+
       if (n.bitcoinCount > 0) {
         out.push({
           key: `${n.asn}-btc`,
@@ -196,6 +252,7 @@ function SceneContents({ data, highQuality }: { data: NetworkData; highQuality: 
           color: COLOR_BITCOIN,
           baseScale: sizeFor(n.bitcoinCount),
           phase: phaseFor(n.asn, 1),
+          selection: { ...base, side: "bitcoin" },
         });
       }
       if (n.torCount > 0) {
@@ -205,6 +262,7 @@ function SceneContents({ data, highQuality }: { data: NetworkData; highQuality: 
           color: COLOR_TOR,
           baseScale: sizeFor(n.torCount),
           phase: phaseFor(n.asn, 2),
+          selection: { ...base, side: "tor" },
         });
       }
     }
@@ -214,10 +272,10 @@ function SceneContents({ data, highQuality }: { data: NetworkData; highQuality: 
   return (
     <>
       <Stars radius={60} depth={30} count={1500} factor={2} fade speed={0.3} />
-      <NodeCloud entries={entries} />
+      <NodeCloud entries={entries} onSelect={onSelect} />
       <CrossLayerLinks nodes={data.nodes} connections={data.connections} />
-      <ClusterLabel side="bitcoin" />
-      <ClusterLabel side="tor" />
+      <ClusterLabel side="bitcoin" count={data.bitcoin.node_count} stats={data.bitcoin} />
+      <ClusterLabel side="tor" count={data.tor.relay_count} stats={data.tor} />
       <OrbitControls
         enablePan={false}
         autoRotate
@@ -236,9 +294,84 @@ function SceneContents({ data, highQuality }: { data: NetworkData; highQuality: 
   );
 }
 
+function DetailPanel({
+  node,
+  totals,
+  onClose,
+}: {
+  node: SelectedNode;
+  totals: { bitcoin: number; tor: number };
+  onClose: () => void;
+}) {
+  const color = node.side === "bitcoin" ? COLOR_BITCOIN : COLOR_TOR;
+  const ownCount = node.side === "bitcoin" ? node.bitcoinCount : node.torCount;
+  const ownTotal = node.side === "bitcoin" ? totals.bitcoin : totals.tor;
+  const share = ownTotal > 0 ? (ownCount / ownTotal) * 100 : 0;
+  const hasOverlap = node.bitcoinCount > 0 && node.torCount > 0;
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: "1rem",
+        right: "1rem",
+        width: "17rem",
+        background: "rgba(20,18,32,0.85)",
+        border: `1px solid ${color}66`,
+        borderRadius: "0.5rem",
+        padding: "0.85rem 1rem",
+        fontFamily: "system-ui, sans-serif",
+        color: "#e8e6f0",
+      }}
+    >
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+        <div>
+          <div style={{ fontSize: "0.95rem", fontWeight: 600 }}>{node.asn}</div>
+          <div style={{ fontSize: "0.78rem", color: "#9a94b0", marginTop: "0.1rem" }}>
+            {node.providerName ?? node.category}
+          </div>
+        </div>
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          style={{
+            background: "none",
+            border: "none",
+            color: "#9a94b0",
+            cursor: "pointer",
+            fontSize: "1.1rem",
+            lineHeight: 1,
+            padding: 0,
+          }}
+        >
+          ×
+        </button>
+      </div>
+
+      <div style={{ marginTop: "0.6rem", fontSize: "0.8rem", display: "flex", flexDirection: "column", gap: "0.3rem" }}>
+        <div>Location: {node.country}</div>
+        <div style={{ color }}>
+          {ownCount.toLocaleString()} {node.side === "bitcoin" ? "nodes" : "relays"} · {share.toFixed(2)}%
+          of {node.side === "bitcoin" ? "Bitcoin" : "Tor"}
+        </div>
+        {hasOverlap && (
+          <div style={{ color: COLOR_LINK, fontSize: "0.75rem", marginTop: "0.1rem" }}>
+            Also hosts{" "}
+            {node.side === "bitcoin"
+              ? `${node.torCount.toLocaleString()} Tor relays`
+              : `${node.bitcoinCount.toLocaleString()} Bitcoin nodes`}{" "}
+            — shared infrastructure
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Scene() {
   const [data, setData] = useState<NetworkData | null>(null);
   const [highQuality, setHighQuality] = useState(true);
+  const [selected, setSelected] = useState<SelectedNode | null>(null);
 
   useEffect(() => {
     fetch("/data/network.json")
@@ -253,10 +386,11 @@ export default function Scene() {
         camera={{ position: [0, 1.5, 13], fov: 52 }}
         dpr={highQuality ? [1, 2] : 1}
         gl={{ antialias: false, powerPreference: "high-performance" }}
+        onPointerMissed={() => setSelected(null)}
       >
         <color attach="background" args={["#05050c"]} />
         <Suspense fallback={null}>
-          {data && <SceneContents data={data} highQuality={highQuality} />}
+          {data && <SceneContents data={data} highQuality={highQuality} onSelect={setSelected} />}
         </Suspense>
       </Canvas>
 
@@ -277,6 +411,14 @@ export default function Scene() {
       >
         {highQuality ? "Effects: High" : "Effects: Low"}
       </button>
+
+      {selected && data && (
+        <DetailPanel
+          node={selected}
+          totals={{ bitcoin: data.bitcoin.node_count, tor: data.tor.relay_count }}
+          onClose={() => setSelected(null)}
+        />
+      )}
 
       {!data && (
         <div

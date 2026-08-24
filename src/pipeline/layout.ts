@@ -2,7 +2,7 @@ import { readdirSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { murmurhash3_32 } from "./hash.js";
-import { categorizeAsn } from "./providers.js";
+import { categorizeAsn, providerName } from "./providers.js";
 import type { Snapshot } from "./snapshot.js";
 import type { AsnInfo } from "./asnLookup.js";
 
@@ -19,6 +19,8 @@ const PHI_SEED = 0x1b873593;
 export interface AsnPosition {
   asn: string;
   category: string;
+  /** Human-readable provider name for the curated top ASNs; null otherwise. */
+  providerName: string | null;
   /** Most common country code among the ASN's resolved IPs. */
   country: string;
   /** Unit-sphere coordinates (radius 1); the frontend scales/positions the cluster. */
@@ -98,6 +100,7 @@ export function computeAsnLayout(): AsnLayout {
   const positions = asns.map((asn) => ({
     asn,
     category: categorizeAsn(asn),
+    providerName: providerName(asn),
     country: countryByAsn.get(asn) ?? "??",
     ...asnToSpherePosition(asn),
   }));
