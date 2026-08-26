@@ -64,13 +64,26 @@ export default function Home() {
         >
           <h1
             style={{
-              fontSize: "1.75rem",
-              letterSpacing: "0.02em",
+              fontFamily: "var(--font-wordmark), Georgia, serif",
+              fontWeight: 600,
+              fontSize: "2.1rem",
+              letterSpacing: "0.01em",
               margin: 0,
-              textShadow: "0 2px 12px rgba(5,5,12,0.9), 0 0 4px rgba(5,5,12,0.9)",
+              textShadow: "0 2px 14px rgba(5,5,12,0.95), 0 0 4px rgba(5,5,12,0.95)",
             }}
           >
-            NoSinglePoint
+            No
+            <span
+              style={{
+                fontStyle: "italic",
+                color: "#e2495a",
+                textShadow: "0 0 18px rgba(226,73,90,0.55), 0 2px 14px rgba(5,5,12,0.95)",
+              }}
+            >
+              Single
+            </span>
+            Point
+            <span style={{ color: "#726c86", fontSize: "0.55em", fontStyle: "normal" }}>.com</span>
           </h1>
           <p
             style={{
@@ -155,7 +168,7 @@ export default function Home() {
       <style jsx>{`
         @media (max-width: 640px) {
           .hero-title h1 {
-            font-size: 1.3rem !important;
+            font-size: 1.55rem !important;
           }
           .hero-title p {
             font-size: 0.82rem !important;
