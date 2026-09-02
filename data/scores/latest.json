@@ -1,18 +1,18 @@
 {
-  "as_of": "2026-09-01T08:42:29.482Z",
+  "as_of": "2026-09-02T07:57:18.082Z",
   "window_days": 7,
   "bitcoin": {
     "network_name": "Bitcoin",
     "days_averaged": 7,
     "avg_nakamoto_network": 3,
-    "avg_nakamoto_infra": 19,
-    "avg_hhi_infra": 239.71
+    "avg_nakamoto_infra": 18.43,
+    "avg_hhi_infra": 241.71
   },
   "tor": {
     "network_name": "Tor",
     "days_averaged": 7,
-    "avg_nakamoto_network": 61,
+    "avg_nakamoto_network": 59.29,
     "avg_nakamoto_infra": 14,
-    "avg_hhi_infra": 283
+    "avg_hhi_infra": 283.29
   }
 }
