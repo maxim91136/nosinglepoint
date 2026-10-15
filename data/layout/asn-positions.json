@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-14T08:46:43.094Z",
-  "asn_count": 2287,
+  "generated_at": "2026-10-15T08:21:38.766Z",
+  "asn_count": 2290,
   "positions": [
     {
       "asn": "AS10013",
@@ -6267,6 +6267,15 @@
       "z": -0.32345507604150453
     },
     {
+      "asn": "AS211715",
+      "category": "Unknown",
+      "providerName": null,
+      "country": "DE",
+      "x": -0.3618912624534384,
+      "y": -0.5125974255523412,
+      "z": 0.7786389365276878
+    },
+    {
       "asn": "AS211720",
       "category": "Unknown",
       "providerName": null,
@@ -11784,6 +11793,15 @@
       "z": 0.07397958335326496
     },
     {
+      "asn": "AS35986",
+      "category": "Unknown",
+      "providerName": null,
+      "country": "US",
+      "x": -0.0676393067920771,
+      "y": 0.3798033127453486,
+      "z": -0.9225911162613404
+    },
+    {
       "asn": "AS36001",
       "category": "Unknown",
       "providerName": null,
@@ -16125,7 +16143,7 @@
       "asn": "AS50049",
       "category": "Unknown",
       "providerName": null,
-      "country": "AU",
+      "country": "GB",
       "x": -0.38821683519716366,
       "y": -0.6308505166417375,
       "z": 0.671800055464683
@@ -18307,6 +18325,15 @@
       "x": -0.33588416221428913,
       "y": 0.535959926335879,
       "z": -0.7745507000420594
+    },
+    {
+      "asn": "AS60785",
+      "category": "Unknown",
+      "providerName": null,
+      "country": "CH",
+      "x": -0.16521412119991066,
+      "y": 0.3741686786237781,
+      "z": -0.912525119705248
     },
     {
       "asn": "AS6079",
