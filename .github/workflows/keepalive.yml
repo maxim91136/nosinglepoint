@@ -1,0 +1,30 @@
+name: Keepalive
+
+# GitHub disables scheduled workflows after 60 days without repo activity.
+# The daily pipeline only commits when data changes, so it can't be relied on.
+# Calling the "enable" API on every workflow (even already-active ones)
+# resets that inactivity timer, and this workflow re-enables itself too.
+
+on:
+  schedule:
+    - cron: "41 5 1,15 * *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Re-enable all workflows
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          gh api --paginate "repos/$REPO/actions/workflows" \
+            --jq '.workflows[] | select(.state == "active" or .state == "disabled_inactivity") | "\(.id)\t\(.state)\t\(.name)"' |
+          while IFS=$'\t' read -r id state name; do
+            gh api -X PUT "repos/$REPO/actions/workflows/$id/enable"
+            echo "enabled $name ($id, was: $state)"
+          done
