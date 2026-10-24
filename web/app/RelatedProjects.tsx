@@ -11,6 +11,11 @@ const PROJECTS = [
     url: "https://notsodefi.com",
     description: "DeFi decentralization framework",
   },
+  {
+    name: "Bittensor-Labs",
+    url: "https://bittensor-labs.com",
+    description: "Bittensor network & subnet dashboard",
+  },
 ];
 
 export default function RelatedProjects() {
