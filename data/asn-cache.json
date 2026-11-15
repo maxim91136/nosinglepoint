@@ -159638,7 +159638,7 @@
     "asn": "ASAS",
     "asName": "AS Name",
     "cc": "CC",
-    "resolvedAt": "2026-11-14T10:31:22.676Z"
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
   },
   "24.225.96.221": {
     "asn": "AS11232",
@@ -194228,7 +194228,7 @@
     "asn": "AS5",
     "asName": "Unknown",
     "cc": "1984-02-02",
-    "resolvedAt": "2026-11-14T10:31:22.312Z"
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
   },
   "45.32.28.24": {
     "asn": "AS20473",
@@ -237969,5 +237969,1901 @@
     "asName": "WI2 - Wire and Wireless Co.,Ltd., JP",
     "cc": "JP",
     "resolvedAt": "2026-11-14T10:31:23.793Z"
+  },
+  "178.224.53.66": {
+    "asn": "AS50266",
+    "asName": "Odido - Odido Netherlands B.V., NL",
+    "cc": "NL",
+    "resolvedAt": "2026-11-15T10:59:43.567Z"
+  },
+  "2a01:e0a:93d:49d0:b63c:fdfd:505a:4d1c": {
+    "asn": "AS12322",
+    "asName": "PROXAD - Free SAS, FR",
+    "cc": "FR",
+    "resolvedAt": "2026-11-15T10:59:43.567Z"
+  },
+  "185.27.213.44": {
+    "asn": "AS200924",
+    "asName": "sis2 - Stiegeler Internet Service GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.567Z"
+  },
+  "2600:1700:488:10:90f2:8ae8:9c53:803": {
+    "asn": "AS7018",
+    "asName": "ATT-INTERNET4 - AT&T Enterprises, LLC, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:43.567Z"
+  },
+  "84.171.69.192": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.567Z"
+  },
+  "76.193.241.113": {
+    "asn": "AS7018",
+    "asName": "ATT-INTERNET4 - AT&T Enterprises, LLC, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:43.567Z"
+  },
+  "83.50.196.85": {
+    "asn": "AS3352",
+    "asName": "Telefonica_de_EspaNa - TELEFONICA DE ESPANA S.A.U., ES",
+    "cc": "ES",
+    "resolvedAt": "2026-11-15T10:59:43.567Z"
+  },
+  "2001:b07:2ef:6e4a:4411:8ed1:9faa:e22": {
+    "asn": "AS12874",
+    "asName": "FASTWEB - Fastweb SpA, IT",
+    "cc": "IT",
+    "resolvedAt": "2026-11-15T10:59:43.567Z"
+  },
+  "109.77.147.180": {
+    "asn": "AS15502",
+    "asName": "Vodafone-Ireland-ASN - Vodafone Ireland Limited, IE",
+    "cc": "IE",
+    "resolvedAt": "2026-11-15T10:59:43.567Z"
+  },
+  "113.30.220.168": {
+    "asn": "AS13101",
+    "asName": "TNG-AS - TNG Stadtnetz GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.567Z"
+  },
+  "93.131.19.131": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.567Z"
+  },
+  "93.230.57.17": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "2405:4802:906c:9e50:e220:13ce:dcb1:1050": {
+    "asn": "AS18403",
+    "asName": "FPT-VN - FPT Telecom Company, VN",
+    "cc": "VN",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "2804:30c:2f7d:2b00:24d9:eea7:c3ed:3c71": {
+    "asn": "AS28343",
+    "asName": "AS28343 - UNIFIQUE TELECOMUNICACOES S/A, BR",
+    "cc": "BR",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "79.194.201.22": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "159.48.35.151": {
+    "asn": "AS197637",
+    "asName": "ROPA - ropa GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "2601:147:4b00:1fe2:c76d:7b4:4e45:e13e": {
+    "asn": "AS7922",
+    "asName": "COMCAST-7922 - Comcast Cable Communications, LLC, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "66.220.124.190": {
+    "asn": "AS4181",
+    "asName": "TDS-AS - TDS TELECOM, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "84.185.12.229": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "2409:8a56:c40:1b10:d804:5564:d675:a8f8": {
+    "asn": "AS56040",
+    "asName": "CMNET-GuangDong-AP - China Mobile communications corporation, CN",
+    "cc": "CN",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "2a00:23c6:9d5d:9401::2c8": {
+    "asn": "AS2856",
+    "asName": "BT-UK-AS - British Telecommunications Limited, GB",
+    "cc": "GB",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "101.98.233.17": {
+    "asn": "AS9790",
+    "asName": "TWO-DEGREES-AS-AP - Two Degrees Networks Limited, NZ",
+    "cc": "NZ",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "2607:5300:203:be0e::": {
+    "asn": "AS16276",
+    "asName": "OVH - OVH SAS, FR",
+    "cc": "CA",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "2a02:2c60:ec94:d7a0:a7ce:647f:9c97:5294": {
+    "asn": "AS9063",
+    "asName": "SAARGATE-AS - VSE NET GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "84.146.198.183": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "93.197.205.148": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "2804:56c:a15a:6100:78fc:426b:11cc:e472": {
+    "asn": "AS28210",
+    "asName": "AS28210 - GIGA MAIS FIBRA TELECOMUNICACOES S.A., BR",
+    "cc": "BR",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "75.203.148.46": {
+    "asn": "AS6167",
+    "asName": "CELLCO-PART - Verizon Business, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "2606:c800:6081:ab00:ac2d:853d:7bed:f095": {
+    "asn": "AS36012",
+    "asName": "HUNTER-COMM - HUNTER COMMUNICATIONS, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "189.47.100.113": {
+    "asn": "AS27699",
+    "asName": "AS27699 - TELEFONICA BRASIL S.A, BR",
+    "cc": "BR",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "73.190.105.100": {
+    "asn": "AS7922",
+    "asName": "COMCAST-7922 - Comcast Cable Communications, LLC, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "93.249.58.14": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "2001:e68:5457:351:9bda:60c8:b004:66f8": {
+    "asn": "AS4788",
+    "asName": "TTSSB-MY - TM TECHNOLOGY SERVICES SDN. BHD., MY",
+    "cc": "MY",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "2407:d000:506:1c34:9950:5c1:3880:f47f": {
+    "asn": "AS23674",
+    "asName": "NAYATEL-PK - Nayatel (Pvt) Ltd, PK",
+    "cc": "PK",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "41.71.28.139": {
+    "asn": "AS37053",
+    "asName": "RSAWEB (PTY) LTD - RSAWEB (PTY) LTD, ZA",
+    "cc": "ZA",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "91.96.115.11": {
+    "asn": "AS9145",
+    "asName": "EWETEL - EWE TEL GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "51.154.51.113": {
+    "asn": "AS15796",
+    "asName": "SALT-CH - Salt Mobile SA, CH",
+    "cc": "CH",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "78.54.132.60": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "89.164.206.75": {
+    "asn": "AS13046",
+    "asName": "ASN-ISKON - Hrvatski Telekom d.d., HR",
+    "cc": "HR",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "41.133.202.29": {
+    "asn": "AS20011",
+    "asName": "Dimension Data - Dimension Data, ZA",
+    "cc": "ZA",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "82.64.114.179": {
+    "asn": "AS12322",
+    "asName": "PROXAD - Free SAS, FR",
+    "cc": "FR",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "2001:16a2:f384:5900:6a1d:efff:fe5d:c130": {
+    "asn": "AS25019",
+    "asName": "SAUDINETSTC-AS - Saudi Telecom Company JSC, SA",
+    "cc": "SA",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "2001:16b8:1402:1e4a::13": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "2a0d:3344:5d15:db00:1893:c91f:61ae:f1c1": {
+    "asn": "AS14593",
+    "asName": "SPACEX-STARLINK - Space Exploration Technologies Corporation, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "79.237.98.10": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "93.66.217.70": {
+    "asn": "AS30722",
+    "asName": "VODAFONE-IT-ASN - Fastweb SpA, IT",
+    "cc": "IT",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "108.41.157.12": {
+    "asn": "AS701",
+    "asName": "UUNET - Verizon Business, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "92.116.190.165": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "86.128.255.148": {
+    "asn": "AS2856",
+    "asName": "BT-UK-AS - British Telecommunications Limited, GB",
+    "cc": "GB",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "217.251.145.197": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "91.186.32.203": {
+    "asn": "AS9136",
+    "asName": "WOBCOM - Wobcom GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "2001:1aef:531:4f3d::381": {
+    "asn": "AS13036",
+    "asName": "TMOBILE-CZ - T-Mobile Czech Republic a.s., CZ",
+    "cc": "CZ",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "2a0e:c980:18d6:0:6426:4aad:1739:442": {
+    "asn": "AS34393",
+    "asName": "SYSTEL-AS - Systel Systemy Teleinformatyczne Sp. z o.o., PL",
+    "cc": "PL",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "84.163.138.16": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "84.44.248.88": {
+    "asn": "AS8422",
+    "asName": "NETCOLOGNE - NetCologne Gesellschaft fur Telekommunikation mbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.568Z"
+  },
+  "91.35.20.59": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "95.117.120.198": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "185.26.43.85": {
+    "asn": "AS39264",
+    "asName": "METROMAX-AS - _Region Svyaz Konsalt_ LLC, RU",
+    "cc": "RU",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "205.206.153.63": {
+    "asn": "AS852",
+    "asName": "ASN852 - TELUS Communications Inc., CA",
+    "cc": "CA",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "2a00:23c8:9641:e801:56a:5b35:2cfa:4ca0": {
+    "asn": "AS2856",
+    "asName": "BT-UK-AS - British Telecommunications Limited, GB",
+    "cc": "GB",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "89.246.217.108": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "79.233.109.25": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "86.129.211.136": {
+    "asn": "AS2856",
+    "asName": "BT-UK-AS - British Telecommunications Limited, GB",
+    "cc": "GB",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "2804:14c:116:93b9:be24:11ff:fe19:95": {
+    "asn": "AS28573",
+    "asName": "AS28573 - Claro NXT Telecomunicacoes Ltda, BR",
+    "cc": "BR",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "2a02:c207:2375:3231::1": {
+    "asn": "AS51167",
+    "asName": "CONTABO - Contabo GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "67.146.187.227": {
+    "asn": "AS19901",
+    "asName": "BRIGHTSPEED - Brightspeed, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "77.223.30.109": {
+    "asn": "AS15943",
+    "asName": "WTNET-AS - wilhelm.tel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "79.155.74.198": {
+    "asn": "AS3352",
+    "asName": "Telefonica_de_EspaNa - TELEFONICA DE ESPANA S.A.U., ES",
+    "cc": "ES",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "92.116.212.104": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "93.125.53.20": {
+    "asn": "AS6697",
+    "asName": "BELPAK-AS - Republican Unitary Telecommunication Enterprise Beltelecom, BY",
+    "cc": "BY",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "31.47.167.186": {
+    "asn": "AS12688",
+    "asName": "BAIKALTRANSTELECOM - Joint Stock Company TransTeleCom, RU",
+    "cc": "RU",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "178.164.188.253": {
+    "asn": "AS20845",
+    "asName": "DIGICABLE - 2Connect Telecommunications Infrastructure & Network Services Ltd., HU",
+    "cc": "HU",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "109.250.157.96": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "81.183.63.196": {
+    "asn": "AS5483",
+    "asName": "MAGYAR-TELEKOM-MAIN-AS - Magyar Telekom Plc., HU",
+    "cc": "HU",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "108.26.172.24": {
+    "asn": "AS701",
+    "asName": "UUNET - Verizon Business, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "2001:16b8:35e8:af00:936f:a16a:e832:938b": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "87.168.246.231": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "93.204.140.109": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "93.211.80.74": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "203.164.123.216": {
+    "asn": "AS4804",
+    "asName": "MPX-AS - Microplex PTY LTD, AU",
+    "cc": "AU",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "2a02:3100:a806:eb00:a2ad:9fff:fec6:780f": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "167.86.85.75": {
+    "asn": "AS51167",
+    "asName": "CONTABO - Contabo GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "87.123.84.157": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "89.247.146.157": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "109.137.157.84": {
+    "asn": "AS5432",
+    "asName": "PROXIMUS-ISP-AS - Proximus NV, BE",
+    "cc": "BE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "113.67.178.249": {
+    "asn": "AS4134",
+    "asName": "CHINANET-BACKBONE - No.31,Jin-rong Street, CN",
+    "cc": "CN",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "176.133.152.6": {
+    "asn": "AS5410",
+    "asName": "BOUYGTEL-ISP - Bouygues Telecom SA, FR",
+    "cc": "FR",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "2a01:4f8:231:9ca::2": {
+    "asn": "AS24940",
+    "asName": "HETZNER-AS - Hetzner Online GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "79.227.68.141": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "2001:16a2:cf90:9b00:80c6:1528:1fdd:1d21": {
+    "asn": "AS25019",
+    "asName": "SAUDINETSTC-AS - Saudi Telecom Company JSC, SA",
+    "cc": "SA",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "37.23.164.20": {
+    "asn": "AS12389",
+    "asName": "ROSTELECOM-AS - PJSC Rostelecom, RU",
+    "cc": "RU",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "83.135.97.252": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "95.214.41.2": {
+    "asn": "AS6876",
+    "asName": "TENET-AS - TENET Scientific Production Enterprise LLC, UA",
+    "cc": "UA",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "144.64.62.229": {
+    "asn": "AS3243",
+    "asName": "MEO-RESIDENCIAL - MEO - SERVICOS DE COMUNICACOES E MULTIMEDIA S.A., PT",
+    "cc": "PT",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "2a02:8308:216:6f00:2cef:5245:2843:7e0d": {
+    "asn": "AS16019",
+    "asName": "VODAFONE-CZ-AS - Vodafone Czech Republic a.s., CZ",
+    "cc": "CZ",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "178.142.94.228": {
+    "asn": "AS9145",
+    "asName": "EWETEL - EWE TEL GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "185.217.241.142": {
+    "asn": "AS197304",
+    "asName": "DilisGrup - Dilis Grup EOOD, BG",
+    "cc": "BG",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "95.112.102.30": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "89.247.26.235": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "212.195.69.199": {
+    "asn": "AS5410",
+    "asName": "BOUYGTEL-ISP - Bouygues Telecom SA, FR",
+    "cc": "FR",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "88.130.119.215": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "92.117.100.74": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "169.0.177.147": {
+    "asn": "AS37611",
+    "asName": "AFRIHOST SP (PTY) LTD - AFRIHOST SP (PTY) LTD, ZA",
+    "cc": "ZA",
+    "resolvedAt": "2026-11-15T10:59:43.885Z"
+  },
+  "162.213.181.90": {
+    "asn": "AS31857",
+    "asName": "ZFP-ASN-1 - Ziply Fiber, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "159.69.58.77": {
+    "asn": "AS24940",
+    "asName": "HETZNER-AS - Hetzner Online GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "88.207.104.237": {
+    "asn": "AS31012",
+    "asName": "DCM-AS - A1 Hrvatska d.o.o., HR",
+    "cc": "HR",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "177.40.32.90": {
+    "asn": "AS18881",
+    "asName": "AS18881 - TELEFONICA BRASIL S.A, BR",
+    "cc": "BR",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "2806:109f:1b:fd41::1": {
+    "asn": "AS8151",
+    "asName": "AS8151 - UNINET, MX",
+    "cc": "MX",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "89.245.216.245": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "97.127.72.229": {
+    "asn": "AS209",
+    "asName": "CENTURYLINK-US-LEGACY-QWEST - CenturyLink Communications, LLC, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "171.213.203.173": {
+    "asn": "AS4134",
+    "asName": "CHINANET-BACKBONE - No.31,Jin-rong Street, CN",
+    "cc": "CN",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "88.9.204.236": {
+    "asn": "AS3352",
+    "asName": "Telefonica_de_EspaNa - TELEFONICA DE ESPANA S.A.U., ES",
+    "cc": "ES",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "93.232.125.124": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "167.56.90.244": {
+    "asn": "AS6057",
+    "asName": "AS6057 - Administracion Nacional de Telecomunicaciones, UY",
+    "cc": "UY",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "146.66.163.201": {
+    "asn": "AS42893",
+    "asName": "NWLINK-AS - Home Internet Ltd, RU",
+    "cc": "RU",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "240e:b8f:318f:7800:3199:49f:ada0:712": {
+    "asn": "AS4134",
+    "asName": "CHINANET-BACKBONE - No.31,Jin-rong Street, CN",
+    "cc": "CN",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "148.113.168.14": {
+    "asn": "AS16276",
+    "asName": "OVH - OVH SAS, FR",
+    "cc": "CA",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "87.156.23.234": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "2804:448:69:770b:282a:5fd9:3fd4:504e": {
+    "asn": "AS262427",
+    "asName": "AS262427 - Invista Net Provedor de Acesso Ltda, BR",
+    "cc": "BR",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "217.164.24.19": {
+    "asn": "AS5384",
+    "asName": "EMIRATES-INTERNET - EMIRATES TELECOMMUNICATIONS GROUP COMPANY (ETISALAT GROUP) PJSC, AE",
+    "cc": "AE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "2607:73c0:2402:ed00:1119:f496:dd32:310e": {
+    "asn": "AS18731",
+    "asName": "CITYSIDE-01 - Cityside Fiber, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "47.150.47.222": {
+    "asn": "AS5650",
+    "asName": "FRONTIER-FRTR - Frontier Communications of America, Inc., US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "2606:8240:8113:fc92:28c4:f0c1:f312:aecc": {
+    "asn": "AS399143",
+    "asName": "4CEPA-FASTNET - 4-County Electric Power Association, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "84.0.5.215": {
+    "asn": "AS5483",
+    "asName": "MAGYAR-TELEKOM-MAIN-AS - Magyar Telekom Plc., HU",
+    "cc": "HU",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "89.12.224.124": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "91.40.243.10": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "89.244.185.63": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "89.247.156.118": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "83.38.88.166": {
+    "asn": "AS3352",
+    "asName": "Telefonica_de_EspaNa - TELEFONICA DE ESPANA S.A.U., ES",
+    "cc": "ES",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "108.32.13.178": {
+    "asn": "AS701",
+    "asName": "UUNET - Verizon Business, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "186.50.236.112": {
+    "asn": "AS6057",
+    "asName": "AS6057 - Administracion Nacional de Telecomunicaciones, UY",
+    "cc": "UY",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "149.233.152.160": {
+    "asn": "AS15943",
+    "asName": "WTNET-AS - wilhelm.tel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "92.252.44.129": {
+    "asn": "AS9145",
+    "asName": "EWETEL - EWE TEL GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "2a01:4f8:1c18:5b5f::1": {
+    "asn": "AS24940",
+    "asName": "HETZNER-AS - Hetzner Online GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "117.212.64.150": {
+    "asn": "AS9829",
+    "asName": "BSNL-NIB - National Internet Backbone, IN",
+    "cc": "IN",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "77.181.72.193": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "84.190.128.239": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "79.194.24.205": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "217.234.231.54": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "77.179.159.200": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "2601:1c0:5f03:e453:3a5a:eb82:dd8b:6647": {
+    "asn": "AS7922",
+    "asName": "COMCAST-7922 - Comcast Cable Communications, LLC, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "77.187.137.162": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "63.254.176.100": {
+    "asn": "AS20326",
+    "asName": "TERASWITCH - TeraSwitch Networks Inc., US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "84.174.107.62": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "109.76.231.215": {
+    "asn": "AS15502",
+    "asName": "Vodafone-Ireland-ASN - Vodafone Ireland Limited, IE",
+    "cc": "IE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "85.17.120.130": {
+    "asn": "AS60781",
+    "asName": "LEASEWEB-NL-AMS-01 - LeaseWeb Netherlands B.V., NL",
+    "cc": "NL",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "89.245.97.105": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "79.214.156.133": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "84.229.162.231": {
+    "asn": "AS12400",
+    "asName": "PARTNER-AS - Partner Communications Ltd., IL",
+    "cc": "IL",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "164.68.201.251": {
+    "asn": "AS23089",
+    "asName": "HOTWIRE-COMMUNICATIONS - Hotwire Communications, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "2a01:e0a:dcd:8480:23f:561f:3544:b9de": {
+    "asn": "AS12322",
+    "asName": "PROXAD - Free SAS, FR",
+    "cc": "FR",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "151.59.155.169": {
+    "asn": "AS1267",
+    "asName": "ASN-WINDTRE - WIND TRE S.P.A., IT",
+    "cc": "IT",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "93.148.5.243": {
+    "asn": "AS30722",
+    "asName": "VODAFONE-IT-ASN - Fastweb SpA, IT",
+    "cc": "IT",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "93.138.30.151": {
+    "asn": "AS5391",
+    "asName": "T-HT - Hrvatski Telekom d.d., HR",
+    "cc": "HR",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "186.50.125.135": {
+    "asn": "AS6057",
+    "asName": "AS6057 - Administracion Nacional de Telecomunicaciones, UY",
+    "cc": "UY",
+    "resolvedAt": "2026-11-15T10:59:44.229Z"
+  },
+  "95.145.86.33": {
+    "asn": "AS2856",
+    "asName": "BT-UK-AS - British Telecommunications Limited, GB",
+    "cc": "GB",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "79.252.56.191": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "97.120.116.255": {
+    "asn": "AS209",
+    "asName": "CENTURYLINK-US-LEGACY-QWEST - CenturyLink Communications, LLC, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "217.246.226.240": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "2a01:4ff:f0:977c::1": {
+    "asn": "AS213230",
+    "asName": "HETZNER-CLOUD2-AS - Hetzner Online GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "79.249.182.42": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "46.167.104.4": {
+    "asn": "AS8427",
+    "asName": "MAGINFO-AS - Joint Stock Company TransTeleCom, RU",
+    "cc": "RU",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "2400:4053:1c01:f000:1:1:1:135": {
+    "asn": "AS4713",
+    "asName": "OCN - NTT DOCOMO BUSINESS,Inc., JP",
+    "cc": "JP",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "89.245.82.5": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "87.245.32.48": {
+    "asn": "AS9145",
+    "asName": "EWETEL - EWE TEL GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "31.150.123.4": {
+    "asn": "AS9145",
+    "asName": "EWETEL - EWE TEL GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "93.201.127.250": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "2405:6581:1f40:2f00:596:8994:6dd:aa4b": {
+    "asn": "AS4685",
+    "asName": "ASAHI-NET - Asahi Net, JP",
+    "cc": "JP",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "154.47.16.123": {
+    "asn": "AS212238",
+    "asName": "CDNEXT - Datacamp Limited, GB",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "2806:103e:17:5fd1:25f3:b33:3357:5b39": {
+    "asn": "AS8151",
+    "asName": "AS8151 - UNINET, MX",
+    "cc": "MX",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "80.145.225.156": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "2a01:e0a:1165:d620:fd78:665e:f67e:756d": {
+    "asn": "AS12322",
+    "asName": "PROXAD - Free SAS, FR",
+    "cc": "FR",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "93.107.225.60": {
+    "asn": "AS15502",
+    "asName": "Vodafone-Ireland-ASN - Vodafone Ireland Limited, IE",
+    "cc": "IE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "35.213.152.13": {
+    "asn": "AS19527",
+    "asName": "GOOGLE-2 - Google LLC, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "66.234.146.114": {
+    "asn": "AS9009",
+    "asName": "M247 - M247 Europe SRL, RO",
+    "cc": "RO",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "2a01:e0a:9d8:c250:4ecc:6aff:feaf:8ecd": {
+    "asn": "AS12322",
+    "asName": "PROXAD - Free SAS, FR",
+    "cc": "FR",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "46.142.129.207": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "89.245.1.17": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "2804:d4b:a94c:5100:7db7:e907:c010:9c81": {
+    "asn": "AS7738",
+    "asName": "AS7738 - V tal, BR",
+    "cc": "BR",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "2a02:21b4:2036:3e00:52c:813d:6966:f4a4": {
+    "asn": "AS3303",
+    "asName": "SWISSCOM - Swisscom (Schweiz) AG, CH",
+    "cc": "CH",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "78.51.86.224": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "188.174.55.137": {
+    "asn": "AS8767",
+    "asName": "MNET-AS - M-net Telekommunikations GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "87.188.127.124": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "87.78.31.39": {
+    "asn": "AS8422",
+    "asName": "NETCOLOGNE - NetCologne Gesellschaft fur Telekommunikation mbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "49.245.33.87": {
+    "asn": "AS4773",
+    "asName": "MOBILEONELTD-AS-AP - MobileOne Ltd. Mobile/Internet Service Provider Singapore, SG",
+    "cc": "SG",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "95.117.52.239": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "81.25.163.181": {
+    "asn": "AS15943",
+    "asName": "WTNET-AS - wilhelm.tel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "88.207.217.48": {
+    "asn": "AS6661",
+    "asName": "EPT-LU - POST Luxembourg, LU",
+    "cc": "LU",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "92.117.216.219": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "99.192.80.125": {
+    "asn": "AS577",
+    "asName": "BACOM - Bell Canada, CA",
+    "cc": "CA",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "82.140.61.81": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "81.40.81.111": {
+    "asn": "AS3352",
+    "asName": "Telefonica_de_EspaNa - TELEFONICA DE ESPANA S.A.U., ES",
+    "cc": "ES",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "73.93.191.196": {
+    "asn": "AS7922",
+    "asName": "COMCAST-7922 - Comcast Cable Communications, LLC, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "109.77.190.171": {
+    "asn": "AS15502",
+    "asName": "Vodafone-Ireland-ASN - Vodafone Ireland Limited, IE",
+    "cc": "IE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "2409:8a46:3d0b:b2b0:3a35:f319:a9cc:84e9": {
+    "asn": "AS24445",
+    "asName": "CMNET-V4henan-AS-AP - Henan Mobile Communications Co.,Ltd, CN",
+    "cc": "CN",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "91.98.165.6": {
+    "asn": "AS24940",
+    "asName": "HETZNER-AS - Hetzner Online GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "87.173.95.184": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "195.52.16.190": {
+    "asn": "AS12312",
+    "asName": "ECOTEL - ecotel communication ag, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:44.618Z"
+  },
+  "81.197.7.219": {
+    "asn": "AS719",
+    "asName": "ELISA-AS - Elisa Oyj, FI",
+    "cc": "FI",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "2a01:e0a:126e:8390:3117:ad13:7b71:da15": {
+    "asn": "AS12322",
+    "asName": "PROXAD - Free SAS, FR",
+    "cc": "FR",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "92.225.134.163": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "84.46.31.93": {
+    "asn": "AS15943",
+    "asName": "WTNET-AS - wilhelm.tel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "58.136.196.133": {
+    "asn": "AS133481",
+    "asName": "AIS-Fibre-AS-AP - AIS Fibre, TH",
+    "cc": "TH",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "95.102.222.55": {
+    "asn": "AS6855",
+    "asName": "SK-TELEKOM - Slovak Telekom, a.s., SK",
+    "cc": "SK",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "2600:4040:9411:7400:34a4:5819:255c:efb2": {
+    "asn": "AS701",
+    "asName": "UUNET - Verizon Business, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "201.210.24.180": {
+    "asn": "AS8048",
+    "asName": "AS8048 - CANTV Servicios, Venezuela, VE",
+    "cc": "VE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "77.183.2.223": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "84.166.230.242": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "84.39.84.8": {
+    "asn": "AS39090",
+    "asName": "BRANDL - Brandl Services GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "1.20.201.226": {
+    "asn": "AS23969",
+    "asName": "TOT-NET - TOT Public Company Limited, TH",
+    "cc": "TH",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "89.0.236.213": {
+    "asn": "AS8422",
+    "asName": "NETCOLOGNE - NetCologne Gesellschaft fur Telekommunikation mbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "2804:1b3:7001:290::2b8": {
+    "asn": "AS18881",
+    "asName": "AS18881 - TELEFONICA BRASIL S.A, BR",
+    "cc": "BR",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "93.143.123.119": {
+    "asn": "AS5391",
+    "asName": "T-HT - Hrvatski Telekom d.d., HR",
+    "cc": "HR",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "217.83.23.180": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "101.183.229.193": {
+    "asn": "AS1221",
+    "asName": "ASN-TELSTRA - Telstra Limited, AU",
+    "cc": "AU",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "85.195.196.197": {
+    "asn": "AS13030",
+    "asName": "INIT7 - Init7 (Switzerland) Ltd., CH",
+    "cc": "CH",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "2a01:620:c195:c900:f13c:606b:e5cb:15f8": {
+    "asn": "AS12389",
+    "asName": "ROSTELECOM-AS - PJSC Rostelecom, RU",
+    "cc": "RU",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "89.245.209.62": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "2804:249c:181:2ebf:2ea0:761:9f3f:66df": {
+    "asn": "AS264233",
+    "asName": "AS264233 - WF -TELECOM SERVICOS DE TELECOMUNICACOES EIRELE ME, BR",
+    "cc": "BR",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "79.112.44.76": {
+    "asn": "AS57269",
+    "asName": "DIGI-ES - DIGI SPAIN TELECOM S.A, ES",
+    "cc": "ES",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "87.166.234.101": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "113.248.110.73": {
+    "asn": "AS141739",
+    "asName": "CT-CHONGQING-MAN2-AP - China Telecom, CN",
+    "cc": "CN",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "95.33.104.97": {
+    "asn": "AS9145",
+    "asName": "EWETEL - EWE TEL GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "240e:351:506d:8b10:2e0:70ff:fe87:fe20": {
+    "asn": "AS4134",
+    "asName": "CHINANET-BACKBONE - No.31,Jin-rong Street, CN",
+    "cc": "CN",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "88.68.66.13": {
+    "asn": "AS3209",
+    "asName": "VODANET - Vodafone GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "217.232.145.157": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "64.225.64.149": {
+    "asn": "AS14061",
+    "asName": "DIGITALOCEAN-ASN - DigitalOcean, LLC, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "80.143.103.38": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "213.221.213.142": {
+    "asn": "AS15600",
+    "asName": "QUICKLINE - Quickline AG, CH",
+    "cc": "CH",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "93.133.220.237": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "2a02:1210:840e:5600:c48b:e5c9:7d5f:6b49": {
+    "asn": "AS3303",
+    "asName": "SWISSCOM - Swisscom (Schweiz) AG, CH",
+    "cc": "CH",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "2a01:36d:1300:83e4:4bc7:bd9:3361:4ced": {
+    "asn": "AS20845",
+    "asName": "DIGICABLE - 2Connect Telecommunications Infrastructure & Network Services Ltd., HU",
+    "cc": "HU",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "176.126.72.227": {
+    "asn": "AS9063",
+    "asName": "SAARGATE-AS - VSE NET GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "97.248.217.238": {
+    "asn": "AS6167",
+    "asName": "CELLCO-PART - Verizon Business, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "79.214.132.127": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "46.59.199.231": {
+    "asn": "AS15943",
+    "asName": "WTNET-AS - wilhelm.tel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "217.87.69.146": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "89.182.47.32": {
+    "asn": "AS13045",
+    "asName": "HTP-AS - htp GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "155.2.246.150": {
+    "asn": "AS8758",
+    "asName": "IWAY - Iway AG, CH",
+    "cc": "CH",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "150.147.23.66": {
+    "asn": "AS2527",
+    "asName": "So-net - Sony Network Communications Inc., JP",
+    "cc": "JP",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "109.76.13.39": {
+    "asn": "AS15502",
+    "asName": "Vodafone-Ireland-ASN - Vodafone Ireland Limited, IE",
+    "cc": "IE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "79.255.151.67": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "2.155.25.102": {
+    "asn": "AS12430",
+    "asName": "VODAFONE_ES - VODAFONE ESPANA S.A.U., ES",
+    "cc": "ES",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "82.67.87.208": {
+    "asn": "AS12322",
+    "asName": "PROXAD - Free SAS, FR",
+    "cc": "FR",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "188.129.39.245": {
+    "asn": "AS29485",
+    "asName": "AMISHR - A1 Hrvatska d.o.o., HR",
+    "cc": "HR",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "190.22.55.78": {
+    "asn": "AS7418",
+    "asName": "AS7418 - TELEFONICA CHILE S.A., CL",
+    "cc": "CL",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "217.94.159.174": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "195.52.158.83": {
+    "asn": "AS12312",
+    "asName": "ECOTEL - ecotel communication ag, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "84.185.20.56": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "87.162.232.155": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "129.225.156.90": {
+    "asn": "AS31898",
+    "asName": "ORACLE-BMC-31898 - Oracle Corporation, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "89.58.36.215": {
+    "asn": "AS197540",
+    "asName": "netcup-AS - netcup GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "167.0.117.52": {
+    "asn": "AS3816",
+    "asName": "AS3816 - COLOMBIA TELECOMUNICACIONES S.A. ESP BIC, CO",
+    "cc": "CO",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "87.122.39.173": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "212.17.72.121": {
+    "asn": "AS8412",
+    "asName": "TMA - T-Mobile Austria GmbH, AT",
+    "cc": "AT",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "212.227.191.249": {
+    "asn": "AS8560",
+    "asName": "IONOS-AS - IONOS SE, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "92.117.141.207": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "217.225.95.201": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "75.168.233.90": {
+    "asn": "AS209",
+    "asName": "CENTURYLINK-US-LEGACY-QWEST - CenturyLink Communications, LLC, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "150.40.125.13": {
+    "asn": "AS211619",
+    "asName": "MAXKO - MAXKO d.o.o., HR",
+    "cc": "HR",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "79.112.157.253": {
+    "asn": "AS57269",
+    "asName": "DIGI-ES - DIGI SPAIN TELECOM S.A, ES",
+    "cc": "ES",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "86.177.80.154": {
+    "asn": "AS2856",
+    "asName": "BT-UK-AS - British Telecommunications Limited, GB",
+    "cc": "GB",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "45.9.168.56": {
+    "asn": "AS211619",
+    "asName": "MAXKO - MAXKO d.o.o., HR",
+    "cc": "HU",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "101.186.183.53": {
+    "asn": "AS1221",
+    "asName": "ASN-TELSTRA - Telstra Limited, AU",
+    "cc": "AU",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "89.247.254.183": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "93.201.154.146": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "93.244.124.52": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "176.62.18.250": {
+    "asn": "AS34362",
+    "asName": "TERRAKOM-AS - Terrakom d.o.o., HR",
+    "cc": "HR",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "195.52.16.27": {
+    "asn": "AS12312",
+    "asName": "ECOTEL - ecotel communication ag, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "89.142.214.204": {
+    "asn": "AS5603",
+    "asName": "SIOL-NET - Telekom Slovenije, d.d., SI",
+    "cc": "SI",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "217.81.89.199": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "198.167.206.159": {
+    "asn": "AS39287",
+    "asName": "materialism - Materialism s.r.l., RO",
+    "cc": "KN",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "92.116.232.132": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "87.123.136.248": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "95.90.97.89": {
+    "asn": "AS3209",
+    "asName": "VODANET - Vodafone GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "92.116.233.8": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "109.250.190.150": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "130.210.98.147": {
+    "asn": "AS31898",
+    "asName": "ORACLE-BMC-31898 - Oracle Corporation, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "65.21.91.29": {
+    "asn": "AS24940",
+    "asName": "HETZNER-AS - Hetzner Online GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "149.233.244.2": {
+    "asn": "AS15943",
+    "asName": "WTNET-AS - wilhelm.tel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "176.241.31.190": {
+    "asn": "AS20845",
+    "asName": "DIGICABLE - 2Connect Telecommunications Infrastructure & Network Services Ltd., HU",
+    "cc": "HU",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "93.207.39.221": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "95.251.135.86": {
+    "asn": "AS3269",
+    "asName": "ASN-IBSNAZ - Telecom Italia S.p.A., IT",
+    "cc": "IT",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "192.3.81.172": {
+    "asn": "AS36352",
+    "asName": "AS-COLOCROSSING - HostPapa, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "91.126.22.227": {
+    "asn": "AS35699",
+    "asName": "ADAMOEU-AS - Adamo Telecom Iberia S.A., ES",
+    "cc": "ES",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "87.8.71.218": {
+    "asn": "AS3269",
+    "asName": "ASN-IBSNAZ - Telecom Italia S.p.A., IT",
+    "cc": "IT",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "80.176.192.6": {
+    "asn": "AS5378",
+    "asName": "unspecified - Vodafone Limited, GB",
+    "cc": "GB",
+    "resolvedAt": "2026-11-15T10:59:45.038Z"
+  },
+  "193.151.181.12": {
+    "asn": "AS206987",
+    "asName": "MARCUSNAW - Marcus Nawrocki, GB",
+    "cc": "LT",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "79.239.22.45": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "168.110.202.55": {
+    "asn": "AS31898",
+    "asName": "ORACLE-BMC-31898 - Oracle Corporation, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "91.41.106.231": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "193.151.181.11": {
+    "asn": "AS206987",
+    "asName": "MARCUSNAW - Marcus Nawrocki, GB",
+    "cc": "LT",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "195.52.54.10": {
+    "asn": "AS12312",
+    "asName": "ECOTEL - ecotel communication ag, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "109.159.46.119": {
+    "asn": "AS2856",
+    "asName": "BT-UK-AS - British Telecommunications Limited, GB",
+    "cc": "GB",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "136.243.175.31": {
+    "asn": "AS24940",
+    "asName": "HETZNER-AS - Hetzner Online GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "77.11.124.86": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "93.133.112.13": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "31.188.183.110": {
+    "asn": "AS24608",
+    "asName": "WINDTRE-AS - WIND TRE S.P.A., IT",
+    "cc": "IT",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "146.70.154.70": {
+    "asn": "AS9009",
+    "asName": "M247 - M247 Europe SRL, RO",
+    "cc": "RO",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "77.183.129.156": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "83.242.58.29": {
+    "asn": "AS41998",
+    "asName": "NetCom-BW - NetCom BW GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "82.135.76.83": {
+    "asn": "AS8767",
+    "asName": "MNET-AS - M-net Telekommunikations GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "79.250.228.45": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "83.11.238.180": {
+    "asn": "AS5617",
+    "asName": "TPNET - Orange Polska Spolka Akcyjna, PL",
+    "cc": "PL",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "92.117.21.173": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "80.145.222.174": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "109.250.47.30": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "159.195.109.89": {
+    "asn": "AS197540",
+    "asName": "netcup-AS - netcup GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "84.158.17.71": {
+    "asn": "AS3320",
+    "asName": "DTAG - Deutsche Telekom AG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "178.254.44.54": {
+    "asn": "AS42730",
+    "asName": "EVANZOAS - EVANZO e-commerce GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "95.113.139.184": {
+    "asn": "AS6805",
+    "asName": "TDDE-ASN1 - Telefonica Germany GmbH & Co.OHG, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "74.12.37.12": {
+    "asn": "AS577",
+    "asName": "BACOM - Bell Canada, CA",
+    "cc": "CA",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "89.246.51.111": {
+    "asn": "AS8881",
+    "asName": "VERSATEL - 1&1 Versatel GmbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "5.10.44.102": {
+    "asn": "AS198967",
+    "asName": "BITel-Gesellschaft-fuer-Telekommunikation-AS - BITel Gesellschaft fuer Telekommunikation mbH, DE",
+    "cc": "DE",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "86.132.237.107": {
+    "asn": "AS2856",
+    "asName": "BT-UK-AS - British Telecommunications Limited, GB",
+    "cc": "GB",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
+  },
+  "162.244.80.211": {
+    "asn": "AS19624",
+    "asName": "SERVERROOM - Data Room, Inc, US",
+    "cc": "US",
+    "resolvedAt": "2026-11-15T10:59:45.039Z"
   }
 }
