@@ -35,7 +35,7 @@ export interface RollingAverageStats {
 export interface NetworkData {
   generated_at: string;
   snapshot_date: string;
-  bitcoin: NetworkStats & { node_count: number };
+  bitcoin: NetworkStats & { node_count: number; stale_since?: string | null };
   tor: NetworkStats & { relay_count: number };
   nodes: NetworkNode[];
   connections: Connection[];

@@ -1,4 +1,4 @@
-import { writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync, readdirSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { nakamotoCoefficient, herfindahlIndex } from "./scoring.js";
@@ -16,6 +16,8 @@ interface NetworkSnapshot {
   nakamoto_infra: number;
   hhi_infra: number;
   asn_distribution: Record<string, number>;
+  /** Set when the live source was unreachable: date of the data actually shown. */
+  stale_since?: string;
 }
 
 export interface Snapshot {
@@ -72,4 +74,21 @@ export function writeSnapshot(snapshot: Snapshot): string {
   const filePath = path.join(SNAPSHOTS_DIR, `${dateStr}.json`);
   writeFileSync(filePath, JSON.stringify(snapshot, null, 2) + "\n");
   return filePath;
+}
+
+/**
+ * Last known Bitcoin node data, used only when bitnodes.io is unreachable.
+ * Keeps the original stale_since if the latest snapshot is already a stand-in.
+ */
+export function latestBitcoinStandIn(): NetworkSnapshot | null {
+  let files: string[];
+  try {
+    files = readdirSync(SNAPSHOTS_DIR).filter((f) => f.endsWith(".json")).sort();
+  } catch {
+    return null;
+  }
+  const last = files[files.length - 1];
+  if (!last) return null;
+  const snap = JSON.parse(readFileSync(path.join(SNAPSHOTS_DIR, last), "utf-8")) as Snapshot;
+  return { ...snap.bitcoin, stale_since: snap.bitcoin.stale_since ?? snap.timestamp.slice(0, 10) };
 }

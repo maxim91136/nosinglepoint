@@ -72,6 +72,7 @@ const output = {
   snapshot_date: snapshotFile.replace(".json", ""),
   bitcoin: {
     node_count: snapshot.bitcoin.node_count,
+    stale_since: snapshot.bitcoin.stale_since ?? null,
     nakamoto_network: snapshot.bitcoin.nakamoto_network,
     nakamoto_infra: snapshot.bitcoin.nakamoto_infra,
     hhi_infra: snapshot.bitcoin.hhi_infra,

@@ -48,12 +48,15 @@ function averageNetwork(
   snapshots: Snapshot[],
 ): NetworkAverage {
   const entries = snapshots.map((s) => s[networkKey]);
+  // Days with carried-over node data (stale_since) do not count towards the infra averages.
+  const fresh = entries.filter((e) => !e.stale_since);
+  const infra = fresh.length > 0 ? fresh : entries;
   return {
     network_name: networkName,
     days_averaged: entries.length,
     avg_nakamoto_network: average(entries.map((e) => e.nakamoto_network)),
-    avg_nakamoto_infra: average(entries.map((e) => e.nakamoto_infra)),
-    avg_hhi_infra: average(entries.map((e) => e.hhi_infra)),
+    avg_nakamoto_infra: average(infra.map((e) => e.nakamoto_infra)),
+    avg_hhi_infra: average(infra.map((e) => e.hhi_infra)),
   };
 }
 

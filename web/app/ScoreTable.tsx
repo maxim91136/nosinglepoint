@@ -362,6 +362,13 @@ export default function ScoreTable({ data }: { data: NetworkData }) {
             Team Cymru
           </a>
           .
+          {data.bitcoin.stale_since && (
+            <>
+              {" "}
+              Bitcoin node data is carried over from {data.bitcoin.stale_since} because bitnodes.io was
+              unreachable; the mining-pool score is current.
+            </>
+          )}
         </p>
       </div>
     </section>
