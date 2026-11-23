@@ -77,6 +77,16 @@ export default function RelatedProjects() {
           <a href="https://github.com/maxim91136/nosinglepoint" style={{ color: "#8a84a0" }}>
             View source on GitHub
           </a>
+          <span>
+            A project by{" "}
+            <a href="https://dreierlabs.com" style={{ color: "#8a84a0" }}>
+              Dreier Labs
+            </a>
+            {" · "}
+            <a href="https://dreierlabs.com/impressum.html" style={{ color: "#8a84a0" }}>
+              Impressum
+            </a>
+          </span>
           <a
             href={`https://github.com/maxim91136/nosinglepoint/releases/tag/v${pkg.version}`}
             style={{ color: "#8a84a0" }}
