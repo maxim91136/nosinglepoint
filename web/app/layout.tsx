@@ -9,9 +9,23 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
+const TITLE = "NoSinglePoint: Bitcoin and Tor decentralization by hosting provider";
+const DESCRIPTION =
+  "Interactive 3D map of how concentrated Bitcoin nodes, mining pools and Tor relays really are across hosting providers (ASNs). Daily snapshots, Nakamoto coefficient and HHI, open data.";
+
 export const metadata: Metadata = {
-  title: "NoSinglePoint",
-  description: "How centralized are the networks we call decentralized?",
+  metadataBase: new URL("https://nosinglepoint.com"),
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "https://nosinglepoint.com",
+    siteName: "NoSinglePoint",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
