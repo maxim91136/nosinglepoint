@@ -1,0 +1,66 @@
+{
+  "domain": "nosinglepoint.com",
+  "geprueft_am": "2026-11-26T14:14:27.834Z",
+  "score": 89,
+  "befunde": [
+    {
+      "pruefung": "https",
+      "gewicht": 10,
+      "detail": "HTTP 403"
+    }
+  ],
+  "pruefungen": {
+    "redirect": {
+      "ok": true,
+      "detail": "301 https://nosinglepoint.com/"
+    },
+    "https": {
+      "ok": false,
+      "detail": "HTTP 403"
+    },
+    "hsts": {
+      "ok": true,
+      "detail": "max-age=2592000"
+    },
+    "csp": {
+      "ok": true,
+      "detail": "gesetzt"
+    },
+    "xcto": {
+      "ok": true,
+      "detail": "nosniff"
+    },
+    "frame": {
+      "ok": true,
+      "detail": "SAMEORIGIN"
+    },
+    "referrer": {
+      "ok": true,
+      "detail": "same-origin"
+    },
+    "permissions": {
+      "ok": true,
+      "detail": "accelerometer=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=(),xr-spatial-tracking=*"
+    },
+    "caa": {
+      "ok": true,
+      "detail": "0 issue \"comodoca.com\" | 0 issue \"digicert.com; cansignhttpexchanges=yes\" | 0 issue \"letsencrypt.org\" | 0 issue \"pki.goog; cansignhttpexchanges=yes\" | 0 issue \"ssl.com\""
+    },
+    "dnssec": {
+      "ok": true,
+      "detail": "DS-Eintrag vorhanden"
+    },
+    "spf": {
+      "ok": true,
+      "detail": "v=spf1 -all"
+    },
+    "dmarc": {
+      "ok": true,
+      "detail": "v=DMARC1; p=reject; adkim=s; aspf=s"
+    },
+    "nullMx": {
+      "ok": true,
+      "detail": "Null-MX"
+    }
+  }
+}
