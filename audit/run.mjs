@@ -14,6 +14,7 @@ const root = join(here, "..");
 
 const DOH = "https://cloudflare-dns.com/dns-query";
 const HSTS_MIN_MAX_AGE = 2592000; // 30 Tage, Mindestwert
+const UA = "Mozilla/5.0 (compatible; NSP-Audit/1.0; +https://nosinglepoint.com)";
 
 const args = process.argv.slice(2);
 const only = args.includes("--domain") ? args[args.indexOf("--domain") + 1] : null;
@@ -71,7 +72,7 @@ async function checkHttp(domain) {
   const out = {};
   // HTTP -> HTTPS Weiterleitung
   try {
-    const r = await fetch(`http://${domain}/`, { redirect: "manual" });
+    const r = await fetch(`http://${domain}/`, { redirect: "manual", headers: { "user-agent": UA } });
     const loc = r.headers.get("location") || "";
     out.redirect = {
       ok: r.status >= 300 && r.status < 400 && loc.startsWith("https://"),
@@ -82,7 +83,7 @@ async function checkHttp(domain) {
   }
   // HTTPS erreichbar + Header
   try {
-    const r = await fetch(`https://${domain}/`, { redirect: "follow" });
+    const r = await fetch(`https://${domain}/`, { redirect: "follow", headers: { "user-agent": UA } });
     out.https = { ok: r.ok, detail: `HTTP ${r.status}` };
     const h = (n) => r.headers.get(n);
     const hsts = h("strict-transport-security") || "";
