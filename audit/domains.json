@@ -1,0 +1,10 @@
+{
+  "domains": [
+    {
+      "domain": "nosinglepoint.com",
+      "oeffentlich": false,
+      "mail": false,
+      "hinweis": "Kein Mail-Betrieb: null MX, SPF -all, DMARC reject."
+    }
+  ]
+}
