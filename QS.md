@@ -6,7 +6,7 @@
 - Prüft: HTTPS, HTTP→HTTPS-Weiterleitung, HSTS (max-age ≥ 30 Tage), CSP, nosniff, Clickjacking-Schutz, Referrer-Policy, Permissions-Policy, CAA, DNSSEC (DS-Eintrag), SPF (`-all`), DMARC (`reject`/`quarantine`), Null-MX.
 - Ergebnis je Domain: `data/audit/<domain>.json` (Score 0–100, Befunde).
 - Lauf: täglich 05:35 UTC über `.github/workflows/audit.yml`, oder manuell über „Run workflow“.
-- Sichtbarkeit: `oeffentlich: false` in `audit/domains.json`. Erst auf `true` setzen, wenn die Befunde behoben sind.
+- Sichtbarkeit: Die Domain steht öffentlich auf dreierlabs.com/audit (Regel: ab Bronze, Steve 26.11.). Die Liste dort pflegt das Repo dreierlabs.
 - Telegram: noch nicht eingerichtet (offene Entscheidung).
 - Öffentliche Audit-Seite: noch nicht gebaut.
 
@@ -15,6 +15,7 @@
 - Cloudflare: CAA (`letsencrypt.org`, `pki.goog`), Null-MX, SPF `v=spf1 -all`, DMARC `p=reject`, HSTS (1 Monat, ohne includeSubDomains und Preload), nosniff, DNSSEC aktiviert (DS-Eintrag wird bei Cloudflare automatisch gesetzt, Status prüfen).
 - Repo: Security-Header in `web/public/_headers` (CSP, nosniff, DENY, Referrer-Policy, Permissions-Policy).
 - Web-Audit-Werkzeug angelegt.
+- `web/public/.well-known/security.txt` (Expires 2027-11-20) und `web/public/sitemap.xml` ergänzt. `robots.txt` liefert Cloudflare selbst aus, deshalb keine eigene Datei.
 
 ## Offen
 
