@@ -1,12 +1,22 @@
 {
   "domain": "nosinglepoint.com",
-  "geprueft_am": "2026-11-26T14:16:12.898Z",
-  "score": 89,
+  "geprueft_am": "2026-11-27T15:30:30.739Z",
+  "score": 79,
   "befunde": [
     {
       "pruefung": "https",
       "gewicht": 10,
       "detail": "HTTP 403"
+    },
+    {
+      "pruefung": "spf",
+      "gewicht": 5,
+      "detail": "v=spf1 include:_spf.mx.cloudflare.net ~all"
+    },
+    {
+      "pruefung": "nullMx",
+      "gewicht": 5,
+      "detail": "MX-Einträge vorhanden oder fehlend"
     }
   ],
   "pruefungen": {
@@ -20,7 +30,7 @@
     },
     "hsts": {
       "ok": true,
-      "detail": "max-age=2592000"
+      "detail": "max-age=31536000"
     },
     "csp": {
       "ok": true,
@@ -51,16 +61,16 @@
       "detail": "DS-Eintrag vorhanden"
     },
     "spf": {
-      "ok": true,
-      "detail": "v=spf1 -all"
+      "ok": false,
+      "detail": "v=spf1 include:_spf.mx.cloudflare.net ~all"
     },
     "dmarc": {
       "ok": true,
       "detail": "v=DMARC1; p=reject; adkim=s; aspf=s"
     },
     "nullMx": {
-      "ok": true,
-      "detail": "Null-MX"
+      "ok": false,
+      "detail": "MX-Einträge vorhanden oder fehlend"
     }
   }
 }
